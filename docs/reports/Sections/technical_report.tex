@@ -1,0 +1,194 @@
+\documentclass[12pt]{ai_conquer2026}
+\addbibresource{references.bib}
+
+\title{%
+  \begin{center}
+        \Large {AI VIET NAM -- AI Conquer 2026}\\[.5ex]  
+        \Huge \textbf{Technical Report Template \\ 
+        (AI Conquer 2026)}\\[.5ex]
+  \end{center}
+}
+
+% Author --------------------------------------------------------------------
+\posttitle{
+    \author{
+        \begin{minipage}{\textwidth}
+        \centering
+        {
+        \vspace{-1.5em}
+          Tên nhóm / Tên học viên
+        }\\
+      \end{minipage}
+    }
+}
+\date{}
+
+% Header --------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\href{https://www.facebook.com/aivietnam.edu.vn}{\textcolor{aivnGreen}{\bfseries AI VIET NAM (AI Conquer 2026)}}}
+\rhead{\href{https://aivietnam.edu.vn/}{\textcolor{aivnGreen}{\bfseries aivietnam.edu.vn}}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{1.0pt}
+\renewcommand{\headrule}{{\color{aivnGreen}\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
+
+\begin{document}
+\maketitle
+\vspace{-5.5em}
+\setlength{\epigraphwidth}{0.6\textwidth}
+
+\section{Tóm tắt báo cáo}
+
+Phần này dùng để tóm tắt ngắn gọn toàn bộ báo cáo kỹ thuật. Nội dung nên cho biết bài toán là gì, dữ liệu được sử dụng như thế nào, hướng giải quyết chính là gì, kết quả nổi bật ra sao, và kết luận quan trọng nhất. Đây là phần giúp người đọc có cái nhìn nhanh trước khi đi vào chi tiết.
+
+\newpage
+\setcounter{tocdepth}{2}
+\tableofcontents
+\thispagestyle{fancy}
+
+\newpage
+\section{Giới thiệu}
+
+Sentiment Analysis (Phân tích cảm xúc) là quá trình sử dụng các kỹ thuật Xử lý ngôn ngữ tự nhiên (NLP), Học máy (ML) và phân tích dữ liệu để xác định và phân loại cảm xúc (tích cực, tiêu cực, trung tính) ẩn trong văn bản. Mục tiêu của Phân tích cảm xúc là hiểu cảm xúc và thái độ của người dùng hoặc cộng đồng đối với một sản phẩm, dịch vụ hoặc chủ đề nhất định. 
+Trong khuôn khổ của warm-up, mục tiêu chính của dự án là để các thành viên làm quen với việc làm việc nhóm. Bên cạnh đó, nhóm cũng hướng đến đầu ra là API và giao diện UI để người dùng có thể nhập văn bản và đánh giá, phân loại cảm xúc dựa trên dữ liệu đầu vào.
+Về mặt ứng dụng, Sentiment Analysis có thể được dùng để:
+\begin{itemize}
+    \item Theo dõi cảm xúc của khách hàng trên mạng xã hội để đánh giá mức độ hài lòng với thương hiệu hoặc sản phẩm.
+    \item Phân tích phản hồi của khách hàng qua email, trò chuyện và đánh giá trực tuyến để cải thiện dịch vụ.
+    \item Đo lường hiệu quả của các chiến dịch tiếp thị, dựa trên cảm tính của người dùng đối với quảng cáo và nội dung truyền thông.
+    \item Đánh giá sản phẩm, dịch vụ mới, giúp doanh nghiệp điều chỉnh chiến lược phát triển dựa trên phản hồi của người dùng.
+    \item Phân tích đối thủ cạnh tranh, để hiểu cảm nhận của khách hàng về sản phẩm, dịch vụ của đối thủ cạnh tranh.
+    \item Theo dõi xu hướng thị trường và phát hiện các cơ hội kinh doanh dựa trên phản hồi tích cực hoặc tiêu cực về các sản phẩm tương tự.
+    \item Cải thiện trải nghiệm của khách hàng bằng cách phát hiện các vấn đề cụ thể và phản hồi kịp thời.
+\end{itemize}
+
+
+\section{Phát biểu bài toán}
+
+Sentiment Analysis (Phân tích cảm xúc):
+\begin{itemize}
+    \item Đầu vào: văn bản tiếng Việt
+    \item Đầu ra: phân loại cảm xúc: Tích cực, Tiêu cực, Trung tính
+    \item Loại bài toán: classification
+    \item Tiêu chí đánh giá chính:
+    \begin{itemize}
+        \item Chỉ số đánh giá kỹ thuật: F1-Score
+        \item Độ tin cậy (\%)
+        \item Hiệu suất: Tốc độ xử lý văn bản và khả năng xử lý khi khối lượng dữ liệu tăng lên.
+        \item Khả năng xử lý sắc thái ngôn ngữ: Phủ định, mỉa mai, ngữ cảnh và trung lập
+        \item Cấp độ phân tích: Document level, Sentence Level
+    \end{itemize}
+\end{itemize}
+
+
+\section{Dữ liệu}
+
+Phần này mô tả dữ liệu được sử dụng trong project. Nội dung có thể bao gồm:
+\begin{itemize}
+    \item Nguồn dữ liệu
+    \item Kích thước dữ liệu
+    \item Các trường thông tin chính
+    \item Những vấn đề ban đầu của dữ liệu
+    \item Các nhận xét quan trọng sau khi khảo sát dữ liệu
+\end{itemize}
+
+Nếu có hình minh họa, bảng thống kê hoặc ví dụ mẫu dữ liệu thì có thể chèn thêm ở phần này.
+
+\section{Tiền xử lý dữ liệu}
+
+Phần này trình bày các bước xử lý dữ liệu trước khi đưa vào mô hình hoặc hệ thống. Nội dung có thể bao gồm:
+\begin{itemize}
+    \item Xử lý missing values
+    \item Loại bỏ dữ liệu trùng hoặc lỗi
+    \item Chuẩn hóa định dạng
+    \item Encoding / tokenization / normalization
+    \item Feature engineering
+    \item Chia train / validation / test
+\end{itemize}
+
+Người viết nên giải thích vì sao cần các bước đó và đầu ra sau tiền xử lý là gì.
+
+\section{Phương pháp / Cách tiếp cận}
+
+Phần này mô tả hướng giải quyết của nhóm. Người viết nên trình bày:
+\begin{itemize}
+    \item Ý tưởng tổng quát
+    \item Lý do chọn cách tiếp cận này
+    \item Baseline được sử dụng là gì
+    \item Những phương pháp hoặc mô hình được thử nghiệm
+\end{itemize}
+
+Nếu project không dùng model học máy mà đi theo hướng rule-based, logic system hoặc pipeline xử lý thì phần này vẫn cần làm rõ cách tiếp cận tổng thể.
+
+\section{Triển khai hệ thống}
+
+Phần này mô tả cách nhóm hiện thực hóa giải pháp. Nội dung có thể bao gồm:
+\begin{itemize}
+    \item Cấu trúc hệ thống
+    \item Các thành phần chính trong pipeline
+    \item Công cụ và thư viện sử dụng
+    \item Cách các thành phần kết nối với nhau
+    \item Các quyết định kỹ thuật quan trọng
+\end{itemize}
+
+Nếu phù hợp, có thể bổ sung sơ đồ pipeline hoặc mô tả luồng xử lý từ input đến output.
+
+\section{Thực nghiệm và đánh giá}
+
+Phần này trình bày cách nhóm kiểm tra và đánh giá giải pháp. Nội dung có thể bao gồm:
+\begin{itemize}
+    \item Thiết lập thực nghiệm
+    \item Metric sử dụng
+    \item Các mô hình hoặc phương án được so sánh
+    \item Kết quả đạt được
+    \item Nhận xét về kết quả
+\end{itemize}
+
+Nếu có bảng kết quả hoặc biểu đồ thì nên trình bày rõ ràng ở phần này.
+
+\section{Phân tích lỗi và thảo luận}
+
+Phần này giúp báo cáo có chiều sâu hơn. Người viết nên trình bày:
+\begin{itemize}
+    \item Các trường hợp hệ thống làm tốt
+    \item Các trường hợp hệ thống còn lỗi
+    \item Nguyên nhân có thể dẫn đến lỗi
+    \item Hạn chế hiện tại của cách làm
+\end{itemize}
+
+Đây là phần rất quan trọng vì nó cho thấy nhóm không chỉ chạy ra kết quả, mà còn hiểu được kết quả đó.
+
+\section{Kết luận và hướng phát triển}
+
+Phần cuối dùng để tổng kết lại toàn bộ project. Nội dung nên trả lời ngắn gọn các câu hỏi:
+\begin{itemize}
+    \item Nhóm đã giải quyết bài toán bằng cách nào
+    \item Kết quả chính đạt được là gì
+    \item Hạn chế lớn nhất hiện tại là gì
+    \item Nếu có thêm thời gian thì nên cải thiện theo hướng nào
+\end{itemize}
+
+\newpage
+\section{Tài liệu tham khảo}
+\label{section:references}
+\nocite{*}
+\vspace{-3.2em}
+\printbibliography
+
+\newpage
+\begin{appendices}
+
+\section{Phụ lục}
+
+Phần này có thể dùng để bổ sung các nội dung như:
+\begin{itemize}
+    \item Ví dụ dữ liệu
+    \item Bảng kết quả đầy đủ
+    \item Mô tả thêm về tham số
+    \item Hình ảnh minh họa
+    \item Link GitHub / Demo / Video
+\end{itemize}
+
+\end{appendices}
+
+\end{document}

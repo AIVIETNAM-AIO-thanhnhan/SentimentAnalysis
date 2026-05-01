@@ -1,0 +1,223 @@
+\documentclass[12pt]{ai_conquer2026}
+\addbibresource{references.bib}
+
+\title{%
+  \begin{center}
+        \Large {AI VIET NAM -- AI Conquer 2026}\\[.5ex]  
+        \Huge \textbf{QA Report Template \\ 
+        (AI Conquer 2026)}\\[.5ex]
+  \end{center}
+}
+
+% Author --------------------------------------------------------------------
+\posttitle{
+    \author{
+        \begin{minipage}{\textwidth}
+        \centering
+        {
+        \vspace{-1.5em}
+          Tên nhóm / Tên học viên
+        }\\
+      \end{minipage}
+    }
+}
+\date{}
+
+% Header --------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\href{https://www.facebook.com/aivietnam.edu.vn}{\textcolor{aivnGreen}{\bfseries AI VIET NAM (AI Conquer 2026)}}}
+\rhead{\href{https://aivietnam.edu.vn/}{\textcolor{aivnGreen}{\bfseries aivietnam.edu.vn}}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{1.0pt}
+\renewcommand{\headrule}{{\color{aivnGreen}\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
+
+% Packages for tables --------------------------------------------------------
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+
+\begin{document}
+\maketitle
+\vspace{-5.5em}
+\setlength{\epigraphwidth}{0.6\textwidth}
+
+\section{Tóm tắt báo cáo QA}
+
+Phần này dùng để tóm tắt nhanh mục tiêu kiểm thử, phạm vi kiểm thử, số lượng test case đã thực hiện, số lỗi phát hiện được và đánh giá chung về độ ổn định của hệ thống. Đây là phần giúp người đọc nắm nhanh chất lượng hiện tại của project trước khi đi vào chi tiết.
+
+\newpage
+\setcounter{tocdepth}{2}
+\tableofcontents
+\thispagestyle{fancy}
+
+\newpage
+\section{Mục tiêu kiểm thử}
+
+Phần này trình bày mục tiêu của hoạt động QA trong project. Nội dung có thể nêu:
+\begin{itemize}
+    \item Hệ thống hoặc module nào được kiểm thử
+    \item Nhóm muốn kiểm tra điều gì
+    \item Những rủi ro hoặc lỗi nào cần ưu tiên phát hiện
+\end{itemize}
+
+\section{Phạm vi kiểm thử}
+
+Phần này mô tả những gì nằm trong phạm vi kiểm thử và những gì chưa nằm trong phạm vi kiểm thử.
+
+\subsection{Trong phạm vi}
+\begin{itemize}
+    \item Flow chính của hệ thống
+    \item Các chức năng quan trọng
+    \item Input thông thường
+    \item Một số edge cases
+\end{itemize}
+
+\subsection{Ngoài phạm vi}
+\begin{itemize}
+    \item Các chức năng chưa hoàn thiện
+    \item Các trường hợp nâng cao chưa ưu tiên 
+\end{itemize}
+
+\section{Môi trường kiểm thử}
+
+Phần này mô tả môi trường dùng để test:
+\begin{itemize}
+    \item Python version
+    \item Thư viện chính
+    \item Thiết bị / hệ điều hành
+    \item Công cụ sử dụng để test
+\end{itemize}
+
+Ví dụ:
+\begin{itemize}
+    \item Python 3.10
+    \item OS: Ubuntu / Windows
+    \item Libraries: pandas, scikit-learn, torch, streamlit
+\end{itemize}
+
+\section{Chiến lược kiểm thử}
+
+Phần này mô tả cách nhóm tiếp cận việc kiểm thử. Có thể chia thành:
+\begin{itemize}
+    \item Functional testing
+    \item End-to-end testing
+    \item Edge case testing
+    \item Manual review
+\end{itemize}
+
+Người viết nên làm rõ vì sao chọn cách kiểm thử này và ưu tiên kiểm tra phần nào trước.
+
+\section{Bảng test case}
+
+Phần này là phần quan trọng nhất của QA report. Mỗi test case nên ghi rõ đầu vào, kết quả mong đợi, kết quả thực tế và trạng thái cuối cùng.
+
+\renewcommand{\arraystretch}{1.3}
+
+\begin{longtable}{|p{1.3cm}|p{2.5cm}|p{2.8cm}|p{3.2cm}|p{3.2cm}|p{1.5cm}|}
+\hline
+\textbf{ID} & \textbf{Chức năng} & \textbf{Input} & \textbf{Kết quả mong đợi} & \textbf{Kết quả thực tế} & \textbf{Trạng thái} \\
+\hline
+TC01 & Load dữ liệu & File CSV hợp lệ & Hệ thống đọc được dữ liệu và hiển thị đúng số dòng & Hệ thống load thành công, số dòng khớp & Pass \\
+\hline
+TC02 & Xử lý dữ liệu thiếu & Dữ liệu có missing values & Hệ thống xử lý missing values mà không crash & Hệ thống xử lý được, không lỗi & Pass \\
+\hline
+TC03 & Train model baseline & Dataset sau preprocessing & Model train thành công và sinh metric cơ bản & Model train được, có accuracy 0.82 & Pass \\
+\hline
+TC04 & Input rỗng & File rỗng / input null & Hệ thống cảnh báo lỗi phù hợp & Hệ thống báo lỗi chưa rõ ràng & Fail \\
+\hline
+TC05 & End-to-end flow & Input chuẩn từ đầu đến cuối & Hệ thống chạy hoàn chỉnh từ input tới output & Flow chạy được, output hợp lý & Pass \\
+\hline
+\end{longtable}
+
+\section{Tổng hợp kết quả kiểm thử}
+
+Phần này tóm tắt nhanh tình hình test của hệ thống.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{5cm}|p{3cm}|}
+\hline
+\textbf{Chỉ số} & \textbf{Giá trị} \\
+\hline
+Tổng số test case & 5 \\
+\hline
+Số test case Pass & 4 \\
+\hline
+Số test case Fail & 1 \\
+\hline
+Tỉ lệ Pass & 80\% \\
+\hline
+Số lỗi nghiêm trọng & 0 \\
+\hline
+Số lỗi trung bình & 1 \\
+\hline
+Số lỗi nhỏ & 0 \\
+\hline
+\end{tabular}
+\caption{Tổng hợp kết quả kiểm thử}
+\end{table}
+
+\section{Bảng bug report}
+
+Phần này ghi lại các lỗi đã phát hiện trong quá trình kiểm thử.
+
+\begin{longtable}{|p{1.2cm}|p{2.6cm}|p{3.3cm}|p{2.2cm}|p{2.2cm}|p{2cm}|}
+\hline
+\textbf{Bug ID} & \textbf{Mô tả lỗi} & \textbf{Cách tái hiện} & \textbf{Mức độ} & \textbf{Trạng thái} & \textbf{Người xử lý} \\
+\hline
+BUG01 & Hệ thống không xử lý tốt khi input rỗng & Upload file rỗng rồi chạy pipeline & Medium & Open & Nguyen Van A \\
+\hline
+BUG02 & Message lỗi chưa rõ nghĩa với người dùng & Nhập sai định dạng file & Low & Fixed & Tran Thi B \\
+\hline
+\end{longtable}
+
+\section{Phân tích lỗi}
+
+Phần này giúp báo cáo có chiều sâu hơn. Người viết nên trả lời các câu hỏi:
+\begin{itemize}
+    \item Những lỗi nào xuất hiện nhiều nhất
+    \item Lỗi xuất phát từ dữ liệu, logic, model hay pipeline
+    \item Lỗi nào ảnh hưởng nhiều nhất tới trải nghiệm hoặc độ tin cậy
+    \item Lỗi nào đã sửa được và lỗi nào chưa xử lý xong
+\end{itemize}
+
+\section{Đánh giá chung về chất lượng hệ thống}
+
+Phần này đưa ra nhận xét tổng quát:
+\begin{itemize}
+    \item Hệ thống đã ổn định ở mức nào
+    \item Flow chính đã chạy tốt chưa
+    \item Những phần nào còn rủi ro
+    \item Hệ thống đã sẵn sàng cho demo / submit hay chưa
+\end{itemize}
+
+\section{Đề xuất cải thiện}
+
+Phần này nêu các hướng cải thiện sau QA:
+\begin{itemize}
+    \item Bổ sung test case nào
+    \item Sửa flow nào trước
+    \item Cải thiện message lỗi
+    \item Tăng độ ổn định ở bước nào
+\end{itemize}
+
+\section{Kết luận}
+
+Phần cuối dùng để tổng kết nhanh hoạt động QA. Người viết nên nêu:
+\begin{itemize}
+    \item Nhóm đã kiểm thử những gì
+    \item Kết quả chung ra sao
+    \item Những lỗi chính phát hiện được
+    \item Project hiện đã đạt mức nào về độ tin cậy
+\end{itemize}
+
+\newpage
+
+\nocite{*}
+\vspace{-3.2em}
+
+\end{document}
