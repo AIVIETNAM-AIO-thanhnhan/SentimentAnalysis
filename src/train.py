@@ -31,8 +31,10 @@ BASE      = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(BASE, "data",   "cleaned_data.csv")
 MDL_DIR   = os.path.join(BASE, "models")
 MDL_PATH  = os.path.join(MDL_DIR, "sentiment_model.joblib")
-PLOT_PATH = os.path.join(MDL_DIR, "results.png")
+REPORT_DIR   = os.path.join(BASE, "reports")
+PLOT_PATH = os.path.join(REPORT_DIR, "model_test_results.png")
 os.makedirs(MDL_DIR, exist_ok=True)
+os.makedirs(REPORT_DIR, exist_ok=True)
 
 # ── 1. Load & clean ───────────────────────────────────────────────
 print("📂 Loading data...")

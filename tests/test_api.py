@@ -23,7 +23,9 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
 
-BASE_URL = "http://localhost:8000"
+import os
+
+BASE_URL = os.getenv("BASE_URL", "http://localhost:8000")
 
 BASE = os.path.dirname(
     os.path.dirname(
@@ -35,6 +37,14 @@ TEST_DIR = os.path.join(
     BASE,
     "tests"
 )
+
+REPORT_DIR = os.path.join(
+    BASE,
+    "reports"
+) 
+
+os.makedirs(TEST_DIR, exist_ok=True)
+os.makedirs(REPORT_DIR, exist_ok=True)
 
 CSV_FILE = os.path.join(
     TEST_DIR,
@@ -51,7 +61,7 @@ plt.rcParams['font.family'] = 'Noto Sans'
 
 
 TEST_RESULT_PATH = os.path.join(
-    TEST_DIR,
+    REPORT_DIR,
     "api_test_results.pdf"
 )
 

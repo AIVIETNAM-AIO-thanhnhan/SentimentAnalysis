@@ -1,0 +1,148 @@
+version: "3.9"
+
+services:
+
+  # =========================
+  # MODEL TRAINING
+  # =========================
+  model:
+    build:
+      context: .
+      dockerfile: models/Dockerfile
+    container_name: sentiment-model
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      PYTHONUNBUFFERED: 1
+    command: python /app/src/train.py
+
+  # =========================
+  # FASTAPI BACKEND
+  # =========================
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    container_name: sentiment-api
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    networks:
+      - test-net
+    volumes:
+      - .:/app
+    environment:
+      MODEL_PATH: /app/models/sentiment_model.joblib
+      PYTHONUNBUFFERED: 1
+    depends_on:
+      - model
+    restart: unless-stopped
+    command: >
+      uvicorn api.main:app
+      --host 0.0.0.0
+      --port 8000
+
+  # =========================
+  # STREAMLIT UI
+  # =========================
+  ui:
+    build:
+      context: .
+      dockerfile: ui/Dockerfile
+    container_name: sentiment-ui
+    working_dir: /app
+    ports:
+      - "8501:8501"
+    networks:
+      - test-net
+    volumes:
+      - .:/app
+    environment:
+      API_URL: http://api:8000
+      PYTHONUNBUFFERED: 1
+    depends_on:
+      - api
+    restart: unless-stopped
+  #   command: >
+  #     streamlit run /app/ui/app.py
+  #     --server.port 8501
+  #     --server.address 0.0.0.0
+
+  # =========================
+  # MODEL TEST
+  # =========================
+  test-model:
+    build:
+      context: .
+      dockerfile: tests/Dockerfile.test.api
+    container_name: sentiment-test-model
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ./reports:/app/reports
+    user: "${UID:-1000}:${GID-1000}"
+    depends_on:
+      - model
+    command: >
+      python tests/test_model.py -v
+  # =========================
+  # API TEST (generate PDF later)
+  # =========================
+  test-api:
+    build:
+      context: .
+      dockerfile: tests/Dockerfile.test.api
+    container_name: sentiment-test-api
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ./reports:/app/reports
+    user: "${UID:-1000}:${GID-1000}"
+    networks:
+      - test-net
+    environment:
+      BASE_URL: http://api:8000
+    depends_on:
+      - api
+    command: >
+      sh -c "
+      echo 'Waiting for API...';
+      until curl -s http://api:8000/docs > /dev/null; do
+        sleep 2;
+      done;
+
+      pytest tests/test_api.py -v;
+      "
+
+  # =========================
+  # UI TEST
+  # =========================
+  test-ui:
+    build:
+      context: .
+      dockerfile: tests/Dockerfile.test.ui
+    container_name: sentiment-test-ui
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ./reports:/app/reports
+    user: "${UID:-1000}:${GID-1000}"
+    networks:
+      - test-net
+    environment:
+      UI_URL: http://ui:8501
+    depends_on:
+      - ui
+    # command: >
+    #   sh -c "
+    #   echo 'Waiting for UI...';
+    #   until curl -s http://ui:8501 > /dev/null; do
+    #     sleep 2;
+    #   done;
+
+    #   pytest tests/test_ui.py -v;
+    #   "
+
+networks:
+  test-net:
