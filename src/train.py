@@ -6,7 +6,7 @@ Cách chạy:
 
 Output:
     models/sentiment_model.joblib
-    models/results.png
+    reports/model_train_results.png
 """
 
 import os, warnings
@@ -32,7 +32,7 @@ DATA_PATH = os.path.join(BASE, "data",   "cleaned_data.csv")
 MDL_DIR   = os.path.join(BASE, "models")
 MDL_PATH  = os.path.join(MDL_DIR, "sentiment_model.joblib")
 REPORT_DIR   = os.path.join(BASE, "reports")
-PLOT_PATH = os.path.join(REPORT_DIR, "model_test_results.png")
+PLOT_PATH = os.path.join(REPORT_DIR, "model_train_results.png")
 os.makedirs(MDL_DIR, exist_ok=True)
 os.makedirs(REPORT_DIR, exist_ok=True)
 

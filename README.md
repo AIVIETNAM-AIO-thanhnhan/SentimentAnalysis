@@ -39,11 +39,15 @@ docker compose build
 ```
 ## 🚀 Start services
 ```bash
-docker compose up -d model api ui
+docker compose up -d api ui
 ```
 Services:
 API → http://localhost:8000/docs⁠
 UI → http://localhost:8501⁠
+## 🧪 Train model manually
+```bash
+docker compose run --rm train-model
+```
 ## 🧪 Run tests manually
 ```bash
 docker compose run --rm test-model
@@ -61,6 +65,7 @@ bash ci.sh
 ✔ Build Docker images
 ✔ Start API + UI
 ✔ Wait for services
+✔ Run train Model
 ✔ Run Model tests
 ✔ Run API tests
 ✔ Run UI tests
@@ -73,7 +78,7 @@ After CI execution, reports are generated:
 ```text
 reports/
 ├── api_test_results.pdf
-├── model_test_results.png
+├── model_train_results.png
 ```
 ---
 # ⚙️ 5. GitHub Actions CI/CD
@@ -86,7 +91,8 @@ reports/
 ```text
 ✔ Checkout code
 ✔ Build Docker images
-✔ Start MODEL + API + UI
+✔ Start API + UI
+✔ Train model
 ✔ Run tests
 ✔ Generate reports
 ✔ Upload artifacts

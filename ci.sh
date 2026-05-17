@@ -27,18 +27,18 @@ DOCKER_CHANGED=$(git diff --name-only HEAD~1 HEAD | grep -E 'Dockerfile|docker-c
 # =========================
 # Build logic
 # =========================
+if [ -n "$DOCKER_CHANGED" ] || [ -n "$MODEL_CHANGED" ]; then
+  echo "🏗️ Rebuilding MODEL..."
+  docker compose build train-model
+else
+  echo "⚡ MODEL unchanged → skip build"
+fi
+
 if [ -n "$DOCKER_CHANGED" ] || [ -n "$API_CHANGED" ]; then
   echo "🏗️ Rebuilding API..."
   docker compose build api
 else
   echo "⚡ API unchanged → skip build"
-fi
-
-if [ -n "$DOCKER_CHANGED" ] || [ -n "$MODEL_CHANGED" ]; then
-  echo "🏗️ Rebuilding MODEL..."
-  docker compose build model
-else
-  echo "⚡ MODEL unchanged → skip build"
 fi
 
 if [ -n "$DOCKER_CHANGED" ] || [ -n "$UI_CHANGED" ]; then
@@ -56,7 +56,7 @@ else
 fi
 
 echo "🚀 Starting services..."
-docker compose up -d model api ui
+docker compose up -d api ui
 
 echo "⏳ Waiting for API..."
 until curl -s http://localhost:8000/docs > /dev/null; do
@@ -71,26 +71,31 @@ echo "⏳ Waiting for UI..."
 # =========================
 # 2. Run tests
 # =========================
+echo "🧪 Running model training..."
+docker compose run --rm train-model
+TRAIN_MODEL_STATUS=$?
+
 echo "🧪 Running model tests..."
 docker compose run --rm test-model
-MODEL_STATUS=$?
+TEST_MODEL_STATUS=$?
 
 echo "🧪 Running API tests..."
 docker compose run --rm test-api || true
-API_STATUS=$?
+TEST_API_STATUS=$?
 
 echo "🧪 Running UI tests..."
 # docker compose run --rm test-ui || true
-UI_STATUS=$?
+TEST_UI_STATUS=$?
 
 set -e # re-enable strict mode
 
-echo "MODEL status: $MODEL_STATUS"
-echo "API status: $API_STATUS"
-echo "UI status: $UI_STATUS"
+echo "Train MODEL status: $TRAIN_MODEL_STATUS"
+echo "Test MODEL status: $TEST_MODEL_STATUS"
+echo "Test API status: $TEST_API_STATUS"
+echo "Test UI status: $TEST_UI_STATUS"
 
 # fail at the end if needed
-if [ $MODEL_STATUS -ne 0 ] || [ $API_STATUS -ne 0 ] || [ $UI_STATUS -ne 0 ]; then
+if [ $TRAIN_MODEL_STATUS -ne 0 ] || [ $TEST_MODEL_STATUS -ne 0 ] || [ $TEST_API_STATUS -ne 0 ] || [ $TEST_UI_STATUS -ne 0 ]; then
   echo "❌ CI FAILED"
   exit 1
 fi
@@ -99,11 +104,11 @@ fi
 # =========================
 echo "📄 Reports generated:"
 echo "- reports/api_test_results.pdf"
-echo "- reports/model_test_results.png"
+echo "- reports/model_train_results.png"
 
 echo "👉 Open manually on your machine:"
 echo "   open reports/api_test_results.pdf"
-echo "   open reports/model_test_results.png"
+echo "   open reports/model_train_results.png"
 
 # =========================
 # 4. Cleanup

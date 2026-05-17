@@ -67,7 +67,7 @@ jobs:
       # Start services
       # ====================================
       - name: Start services
-        run: docker compose up -d model api ui
+        run: docker compose up -d api ui
 
       # ====================================
       # Wait for API
@@ -91,6 +91,12 @@ jobs:
         #     echo "Waiting for UI..."
         #     sleep 3
         #   done
+      # ====================================
+      # Run Train Model
+      # ====================================
+      - name: Run Train Model
+        run: docker compose run --rm train-model
+        continue-on-error: true
       # ====================================
       # Run Model Tests
       # ====================================

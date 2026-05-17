@@ -1,6 +1,6 @@
 def test_vietnamese_text(page: Page):
 
-    page.goto("http://localhost:8502")
+    page.goto("http://localhost:8501")
 
     # page.get_by_role("textbox").fill(
     #     "sản phẩm rất tốt"
