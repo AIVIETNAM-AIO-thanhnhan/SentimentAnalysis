@@ -7,7 +7,7 @@ Cách chạy:
 Kết quả:
     - Chạy toàn bộ API test từ CSV
     - Verify Expected_Result
-    - Export PNG report tự động
+    - Export PDF file report tự động
 """
 
 import os
