@@ -814,10 +814,11 @@ def generate_test_report(results):
 # =========================================================
 
 @pytest.fixture(scope="session", autouse=True)
-def generate_report_after_tests(request):
+def generate_report_after_tests():
     yield
-
     try:
+        print("\n[INFO] Generating test report...")
         generate_test_report(TEST_RESULTS)
+        print("[INFO] Report generated successfully")
     except Exception as e:
-        print(f"[WARNING] Report generation failed: {e}")
+        print(f"[REPORT ERROR] {e}")
