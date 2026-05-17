@@ -812,15 +812,25 @@ def generate_test_report(results):
 # =========================================================
 # Auto Generate Report
 # =========================================================
+import atexit
+import traceback
 
-@pytest.fixture(scope="session", autouse=True)
-def generate_report_after_tests():
-    yield
+def safe_generate_report():
     try:
-        print("\n[INFO] Generating test report...")
+        print("\n[INFO] Generating test report (SAFE EXIT)...")
+
+        if not TEST_RESULTS:
+            print("[WARN] No test results found")
+            return
+
         generate_test_report(TEST_RESULTS)
+
         print("[INFO] Report generated successfully")
+
     except Exception as e:
-        print(f"[REPORT ERROR] {e}")
-    finally:
-        print("[INFO] Teardown finished")
+        print("[REPORT ERROR]", e)
+        traceback.print_exc()
+
+
+# 🔥 ALWAYS RUN ON PROCESS EXIT (EVEN CRASH)
+atexit.register(safe_generate_report)

@@ -112,8 +112,6 @@ services:
       sh -c "
       set -e;
 
-      trap 'echo Generating report...; python -c \"from tests.test_api import generate_test_report; generate_test_report(None)\"' EXIT;
-
       echo 'Waiting for API...';
       until curl -s http://api:8000/docs > /dev/null; do
         sleep 2;
