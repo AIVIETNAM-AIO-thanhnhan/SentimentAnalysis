@@ -110,6 +110,10 @@ jobs:
         run: docker compose run --rm test-api
         continue-on-error: true
 
+      - name: Generate report
+        if: always()
+        run: python -c "from tests.test_api import generate_test_report, TEST_RESULTS; generate_test_report(TEST_RESULTS)"
+        continue-on-error: true
       # ====================================
       # Run UI Tests
       # ====================================
