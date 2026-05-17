@@ -248,8 +248,7 @@ def test_api(tc):
 
         error_message = str(e)
 
-        print(f"[SOFT FAIL] {e}")
-        TEST_RESULTS["fail"] += 1
+        pytest.fail(str(e))
 
     except requests.exceptions.Timeout:
 
