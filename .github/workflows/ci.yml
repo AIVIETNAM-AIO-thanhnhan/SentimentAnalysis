@@ -128,19 +128,6 @@ jobs:
           path: reports/
 
       # ====================================
-      # Logs (only if failure)
-      # ====================================
-      - name: Show API logs
-        if: failure()
-        run: docker compose logs api
-        continue-on-error: true
-
-      - name: Show UI logs
-        if: failure()
-        run: docker compose logs ui
-        continue-on-error: true
-
-      # ====================================
       # Cleanup
       # ====================================
       - name: Stop containers
