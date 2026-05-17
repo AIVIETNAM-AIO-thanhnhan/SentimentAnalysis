@@ -85,7 +85,7 @@ services:
     depends_on:
       - model
     command: >
-      python tests/test_model.py -v
+      python tests/test_model.py
   # =========================
   # API TEST (generate PDF later)
   # =========================
@@ -112,7 +112,7 @@ services:
         sleep 2;
       done;
 
-      pytest tests/test_api.py -v;
+      pytest tests/test_api.py -q --tb=short;
       "
 
   # =========================
