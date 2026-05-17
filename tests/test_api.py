@@ -822,3 +822,5 @@ def generate_report_after_tests():
         print("[INFO] Report generated successfully")
     except Exception as e:
         print(f"[REPORT ERROR] {e}")
+    finally:
+        print("[INFO] Teardown finished")

@@ -13,7 +13,7 @@ services:
     working_dir: /app
     volumes:
       - .:/app
-    user: "${UID:-1000}:${GID-1000}"
+    # user: "${UID:-1000}:${GID-1000}"
     environment:
       PYTHONUNBUFFERED: 1
     command: python /app/src/train.py
@@ -33,7 +33,7 @@ services:
       - test-net
     volumes:
       - .:/app
-    user: "${UID:-1000}:${GID-1000}"
+    # user: "${UID:-1000}:${GID-1000}"
     environment:
       MODEL_PATH: /app/models/sentiment_model.joblib
       PYTHONUNBUFFERED: 1
@@ -60,7 +60,7 @@ services:
       - test-net
     volumes:
       - .:/app
-    user: "${UID:-1000}:${GID-1000}"
+    # user: "${UID:-1000}:${GID-1000}"
     environment:
       API_URL: http://api:8000
       PYTHONUNBUFFERED: 1
@@ -84,7 +84,7 @@ services:
     volumes:
       - .:/app
       - ./reports:/app/reports
-    user: "${UID:-1000}:${GID-1000}"
+    # user: "${UID:-1000}:${GID-1000}"
     depends_on:
       - train-model
     command: >
@@ -101,7 +101,7 @@ services:
     volumes:
       - .:/app
       - ./reports:/app/reports
-    user: "${UID:-1000}:${GID-1000}"
+    # user: "${UID:-1000}:${GID-1000}"
     networks:
       - test-net
     environment:
@@ -115,7 +115,7 @@ services:
         sleep 2;
       done;
 
-      python -u -m pytest tests/test_api.py -v -s --tb=no;
+      python -u -m pytest tests/test_api.py -v -s --tb=no --maxfail=999;
       "
 
   # =========================
@@ -130,7 +130,7 @@ services:
     volumes:
       - .:/app
       - ./reports:/app/reports
-    user: "${UID:-1000}:${GID-1000}"
+    # user: "${UID:-1000}:${GID-1000}"
     networks:
       - test-net
     environment:
