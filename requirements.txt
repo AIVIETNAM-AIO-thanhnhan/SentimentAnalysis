@@ -26,3 +26,8 @@ reportlab
 playwright
 pytest-playwright
 pytest-html
+streamlit>=1.28.0
+requests>=2.31.0
+plotly>=5.17.0
+
+
