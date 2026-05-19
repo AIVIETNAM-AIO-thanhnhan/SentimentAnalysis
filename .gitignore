@@ -1,5 +1,19 @@
+# Model weights (quá nặng để push)
+models/*.pt
+models/*.joblib
+models/bert_sentiment/
+
+# Data thật (chỉ giữ generate_sample.py)
+data/cleaned_data.csv
+
+# Python
 __pycache__/
-*.pkl
-*.csv
+*.pyc
+*.pyo
 .env
 venv/
+.venv/
+
+# System
+.DS_Store
+Thumbs.db
