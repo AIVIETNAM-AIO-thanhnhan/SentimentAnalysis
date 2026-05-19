@@ -23,7 +23,10 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
 
-BASE_URL = "http://localhost:8000"
+import os
+import matplotlib
+matplotlib.use("Agg") 
+BASE_URL = os.getenv("BASE_URL", "http://localhost:8000")
 
 BASE = os.path.dirname(
     os.path.dirname(
@@ -35,6 +38,14 @@ TEST_DIR = os.path.join(
     BASE,
     "tests"
 )
+
+REPORT_DIR = os.path.join(
+    BASE,
+    "reports"
+) 
+
+os.makedirs(TEST_DIR, exist_ok=True)
+os.makedirs(REPORT_DIR, exist_ok=True)
 
 CSV_FILE = os.path.join(
     TEST_DIR,
@@ -51,7 +62,7 @@ plt.rcParams['font.family'] = 'Noto Sans'
 
 
 TEST_RESULT_PATH = os.path.join(
-    TEST_DIR,
+    REPORT_DIR,
     "api_test_results.pdf"
 )
 
@@ -801,16 +812,25 @@ def generate_test_report(results):
 # =========================================================
 # Auto Generate Report
 # =========================================================
+import atexit
+import traceback
 
-@pytest.fixture(scope="session", autouse=True)
-def generate_report_after_tests(request):
+def safe_generate_report():
+    try:
+        print("\n[INFO] Generating test report (SAFE EXIT)...")
 
-    yield
+        if not TEST_RESULTS:
+            print("[WARN] No test results found")
+            return
 
-    generate_test_report(
-        TEST_RESULTS
-    )
+        generate_test_report(TEST_RESULTS)
 
-    print(
-        f"\nReport generated: {TEST_RESULT_PATH}"
-    )
+        print("[INFO] Report generated successfully")
+
+    except Exception as e:
+        print("[REPORT ERROR]", e)
+        traceback.print_exc()
+
+
+# 🔥 ALWAYS RUN ON PROCESS EXIT (EVEN CRASH)
+atexit.register(safe_generate_report)

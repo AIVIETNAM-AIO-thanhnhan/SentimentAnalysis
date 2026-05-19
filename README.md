@@ -1,184 +1,422 @@
-# 🛍️ Vietnamese Sentiment Analysis
+# 🛍️ Vietnamese AI Sentiment Analysis System
 
-Phân tích cảm xúc đánh giá sản phẩm tiếng Việt — hỗ trợ **TF-IDF** và **BERT**.
+Phân tích cảm xúc đánh giá sản phẩm tiếng Việt với hỗ trợ:
+
+- TF-IDF + Machine Learning (Logistic Regression / SVM / Naive Bayes)
+- BERT (PhoBERT / mBERT / Demo model)
+- FastAPI inference service
+- Streamlit dashboard
+- Automated testing
+- Dockerized deployment
+- CI/CD với GitHub Actions
+- Auto-generated reports
+
+![CI](https://img.shields.io/badge/CI-GitHub_Actions-blue)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
+![Python](https://img.shields.io/badge/Python-3.9+-green)
 
 ---
 
-## 📁 Cấu trúc project
+# 📁 Project Structure
 
-```
+```text
 SentimentAnalysis/
+│
 ├── src/
-│   ├── train.py              # Train TF-IDF (Logistic Regression / SVM / Naive Bayes)
-│   ├── train_bert.py         # Fine-tune BERT (PhoBERT / mBERT / demo)
-│   └── bert_inference.py     # Inference helper
+│   ├── train.py                  # Train TF-IDF models
+│   ├── train_bert.py             # Fine-tune BERT models
+│   └── bert_inference.py         # BERT inference helper
+│
 ├── api/
-│   └── main.py               # FastAPI server
+│   └── main.py                   # FastAPI backend
+│
+├── ui/
+│   └── app.py                    # Streamlit dashboard
+│
 ├── tests/
-│   ├── test_model.py         # Test TF-IDF model
-│   └── test_bert.py          # Test BERT model
+│   ├── test_model.py
+│   ├── test_bert.py
+│   └── test_api.py
+│
 ├── data/
-│   └── generate_sample.py    # Tạo dữ liệu mẫu
-├── models/                   # Được tạo tự động sau khi train
+│   └── generate_sample.py
+│
+├── models/                       # Generated after training
+│
+├── reports/                      # Generated reports
+│
+├── ci.sh                         # Local CI pipeline
+├── docker-compose.yml
 ├── requirements.txt
-└── README.md
+│
+└── .github/
+    └── workflows/
 ```
 
 ---
 
-## ⚙️ Cài đặt
+# ⚙️ Installation
 
-### Bước 1 — Clone repo
+## Clone repository
 
 ```bash
 git clone https://github.com/<your-username>/SentimentAnalysis.git
+
 cd SentimentAnalysis
 ```
 
-### Bước 2 — Tạo virtual environment (khuyến nghị)
+## Create virtual environment
+
+### Windows
 
 ```bash
-# Windows
 python -m venv venv
-venv\Scripts\activate
 
-# macOS / Linux
+venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
 python3 -m venv venv
+
 source venv/bin/activate
 ```
 
-### Bước 3 — Cài thư viện
+## Install dependencies
+
+CPU:
 
 ```bash
-# CPU (máy thường)
 pip install -r requirements.txt
+```
 
-# GPU NVIDIA (nếu có — train nhanh hơn ~10x)
+GPU (NVIDIA):
+
+```bash
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
 pip install -r requirements.txt
 ```
 
 ---
 
-## 🚀 Chạy nhanh (3 bước)
+# 🚀 Quick Start
+
+## Step 1: Generate sample data
 
 ```bash
-# 1. Tạo dữ liệu mẫu
 python data/generate_sample.py
+```
 
-# 2. Train BERT (demo mode — không cần internet)
+## Step 2: Train BERT (Demo mode)
+
+```bash
 python src/train_bert.py --model demo --epochs 10
+```
 
-# 3. Kiểm tra
+## Step 3: Run tests
+
+```bash
 python tests/test_bert.py
 ```
 
 ---
 
-## 🤖 Train BERT
+# 🤖 Train BERT Models
 
-### Demo mode (không cần internet, chạy được ngay)
+## Demo mode
+
+No internet required:
 
 ```bash
 python src/train_bert.py --model demo --epochs 10
 ```
 
-### PhoBERT (tiếng Việt, cần internet, kết quả tốt nhất)
+## PhoBERT
+
+Recommended for Vietnamese:
 
 ```bash
-python src/train_bert.py --model phobert --epochs 5 --lr 2e-5
+python src/train_bert.py \
+--model phobert \
+--epochs 5 \
+--lr 2e-5
 ```
 
-### mBERT (đa ngôn ngữ, cần internet)
+## mBERT
 
 ```bash
-python src/train_bert.py --model mbert --epochs 5 --lr 2e-5
+python src/train_bert.py \
+--model mbert \
+--epochs 5 \
+--lr 2e-5
 ```
 
-### Tùy chỉnh tham số
+## Available Parameters
 
-| Tham số | Mặc định | Mô tả |
-|---|---|---|
-| `--model` | `demo` | `demo` / `phobert` / `mbert` |
-| `--epochs` | `10` | Số epoch huấn luyện |
-| `--batch_size` | `16` | Batch size |
-| `--lr` | `2e-4` | Learning rate |
+| Parameter | Default | Description |
+|------------|----------|-------------|
+| --model | demo | demo / phobert / mbert |
+| --epochs | 10 | Number of epochs |
+| --batch_size | 16 | Batch size |
+| --lr | 2e-4 | Learning rate |
 
-Output sau khi train:
-```
+Generated output:
+
+```text
 models/
 ├── bert_sentiment/
-│   ├── bert_model.pt          ← checkpoint
-│   └── tokenizer_vocab.json   ← vocabulary
-└── bert_results.png           ← biểu đồ loss / accuracy
+│   ├── bert_model.pt
+│   └── tokenizer_vocab.json
+│
+└── bert_results.png
 ```
 
 ---
 
-## 📊 Train TF-IDF
+# 📊 Train TF-IDF Models
 
 ```bash
 python src/train.py
 ```
 
-So sánh 3 model: Logistic Regression, LinearSVC, Naive Bayes. Output: `models/sentiment_model.joblib`.
+Models evaluated:
+
+- Logistic Regression
+- LinearSVC
+- Naive Bayes
+
+Generated:
+
+```text
+models/
+└── sentiment_model.joblib
+```
 
 ---
 
-## 🧪 Chạy Tests
+# 🌐 Run API
+
+Start FastAPI server:
 
 ```bash
-# Test TF-IDF
-python tests/test_model.py
+uvicorn api.main:app \
+--host 0.0.0.0 \
+--port 8000 \
+--reload
+```
 
-# Test BERT
+Open:
+
+```text
+http://localhost:8000/docs
+```
+
+---
+
+# 🖥️ Run Streamlit Dashboard
+
+```bash
+streamlit run ui/app.py
+```
+
+Open:
+
+```text
+http://localhost:8501
+```
+
+---
+
+# 🐳 Run with Docker
+
+## Build system
+
+```bash
+docker compose build
+```
+
+## Start services
+
+```bash
+docker compose up -d api ui
+```
+
+Services:
+
+```text
+API → http://localhost:8000/docs
+
+UI → http://localhost:8501
+```
+
+---
+
+## Train model manually
+
+```bash
+docker compose run --rm train-model
+```
+
+---
+
+## Run tests manually
+
+```bash
+docker compose run --rm test-model
+
+docker compose run --rm test-api
+
+docker compose run --rm test-ui
+```
+
+---
+
+# 🧪 Run Tests Locally
+
+TF-IDF:
+
+```bash
+python tests/test_model.py
+```
+
+BERT:
+
+```bash
 python tests/test_bert.py
 ```
 
-Kết quả kỳ vọng:
-```
-🎉 TẤT CẢ TESTS ĐỀU PASS
-✅ Accuracy=0.9531  Macro-F1=0.9473
-✅ BERT sẵn sàng đẩy lên GitHub!
-```
-
----
-
-## 🌐 Chạy API
+API:
 
 ```bash
-uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+python tests/test_api.py
 ```
 
-Mở trình duyệt: `http://localhost:8000/docs`
+Expected:
+
+```text
+🎉 ALL TESTS PASSED
+
+✅ Accuracy=0.9531
+✅ Macro-F1=0.9473
+```
 
 ---
 
-## 🐍 Yêu cầu hệ thống
+# ⚙️ Local CI Pipeline
 
-| Thành phần | Tối thiểu | Khuyến nghị |
-|---|---|---|
+Run:
+
+```bash
+bash ci.sh
+```
+
+Pipeline includes:
+
+```text
+✔ Build Docker images
+✔ Start API + UI
+✔ Wait for services
+✔ Train model
+✔ Run model tests
+✔ Run API tests
+✔ Run UI tests
+✔ Generate reports
+✔ Cleanup containers
+```
+
+---
+
+# ⚙️ GitHub Actions CI/CD
+
+Trigger events:
+
+```text
+✔ Push to main
+✔ Pull Request
+```
+
+Pipeline:
+
+```text
+✔ Checkout code
+✔ Build Docker images
+✔ Start services
+✔ Train model
+✔ Run tests
+✔ Generate reports
+✔ Upload artifacts
+✔ Cleanup
+```
+
+Download reports:
+
+```text
+GitHub
+→ Actions
+→ Latest workflow run
+→ Download test-reports artifact
+```
+
+---
+
+# 📊 Reports
+
+Generated automatically:
+
+```text
+reports/
+├── api_test_results.pdf
+├── model_train_results.png
+├── bert_results.png
+```
+
+---
+
+# 🐍 System Requirements
+
+| Component | Minimum | Recommended |
+|------------|----------|-------------|
 | Python | 3.9+ | 3.11 |
 | RAM | 4 GB | 8 GB |
-| GPU | Không cần | NVIDIA ≥ 4GB VRAM |
-| Disk | 500 MB | 2 GB (cho PhoBERT) |
+| GPU | Optional | NVIDIA ≥ 4GB VRAM |
+| Disk | 500 MB | 2 GB |
 
 ---
 
-## ❓ Lỗi thường gặp
+# ❓ Common Issues
 
-**`ModuleNotFoundError: No module named 'torch'`**
+### ModuleNotFoundError: torch
+
 ```bash
 pip install torch --index-url https://download.pytorch.org/whl/cpu
 ```
 
-**`We couldn't connect to huggingface.co`**
+### Could not connect to HuggingFace
+
 ```bash
-# Dùng demo mode thay thế
 python src/train_bert.py --model demo
 ```
 
-**`FileNotFoundError: data/cleaned_data.csv`**
+### FileNotFoundError: data/cleaned_data.csv
+
 ```bash
 python data/generate_sample.py
+```
+
+---
+
+# 🧠 Summary
+
+```text
+✔ Vietnamese sentiment analysis
+✔ TF-IDF + BERT support
+✔ FastAPI backend
+✔ Streamlit UI
+✔ Docker deployment
+✔ Automated testing
+✔ CI/CD integration
+✔ Report generation
+✔ Production-ready structure
 ```

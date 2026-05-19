@@ -1,0 +1,751 @@
+TC_ID,Endpoint,Method,Category,Scenario,Request_Body,Expected_Status,Expected_Result,Priority
+TC_0001,/health,GET,Performance,Performance test scenario 1,,200,healthy,MEDIUM
+TC_0002,/predict,POST,Performance,Performance test scenario 2,{'text': 'Được mỗi cái mã'},200,negative,LOW
+TC_0003,/predict,POST,Adversarial,Adversarial test scenario 3,{'text': 'Tạm ổn'},200,neutral,LOW
+TC_0004,/predict,POST,Adversarial,Adversarial test scenario 4,{'text': 'Không tệ lắm'},200,positive,LOW
+TC_0005,/predict/batch,POST,Batch,Batch test scenario 5,"{'texts': ['Bình thường', 'Không như quảng cáo', 'Không tệ lắm', 'Tạm ổn', 'Được mỗi cái mã']}",200,valid batch prediction,MEDIUM
+TC_0006,/,GET,Performance,Performance test scenario 6,,200,healthy,MEDIUM
+TC_0007,/predict/batch,POST,Unicode,Unicode test scenario 7,"{'texts': ['Tạm ổn', 'Shop giao nhanh', 'Không như quảng cáo']}",200,valid batch prediction,MEDIUM
+TC_0008,/predict,POST,Batch,Batch test scenario 8,{'text': 'đỉnh vcl'},200,positive,LOW
+TC_0009,/predict/batch,POST,Adversarial,Adversarial test scenario 9,"{'texts': ['Quá tệ', 'Sản phẩm rất tốt']}",200,valid batch prediction,MEDIUM
+TC_0010,/health,GET,Performance,Performance test scenario 10,,200,healthy,MEDIUM
+TC_0011,/,GET,Functional,Functional test scenario 11,,200,healthy,LOW
+TC_0012,/predict,POST,Batch,Batch test scenario 12,{'text': 'Được mỗi cái mã'},200,negative,HIGH
+TC_0013,/,GET,Adversarial,Adversarial test scenario 13,,200,healthy,HIGH
+TC_0014,/predict/batch,POST,Adversarial,Adversarial test scenario 14,"{'texts': ['Không như quảng cáo', 'Đáng tiền']}",200,valid batch prediction,HIGH
+TC_0015,/health,GET,NLP,NLP test scenario 15,,200,healthy,HIGH
+TC_0016,/predict,POST,Regression,Regression test scenario 16,{'text': 'Đáng tiền'},200,positive,HIGH
+TC_0017,/predict/batch,POST,Adversarial,Adversarial test scenario 17,"{'texts': ['Đáng tiền', 'Không như quảng cáo', 'Được mỗi cái mã']}",200,valid batch prediction,LOW
+TC_0018,/,GET,Regression,Regression test scenario 18,,200,healthy,HIGH
+TC_0019,/,GET,Batch,Batch test scenario 19,,200,healthy,LOW
+TC_0020,/,GET,Performance,Performance test scenario 20,,200,healthy,MEDIUM
+TC_0021,/predict,POST,Regression,Regression test scenario 21,{'text': 'Shop giao nhanh'},200,neutral,LOW
+TC_0022,/predict,POST,Performance,Performance test scenario 22,{'text': '😂😂😂'},200,positive,MEDIUM
+TC_0023,/predict/batch,POST,Validation,Validation test scenario 23,"{'texts': ['Sản phẩm rất tốt', 'Không tệ lắm']}",200,valid batch prediction,LOW
+TC_0024,/health,GET,Edge,Edge test scenario 24,,200,healthy,MEDIUM
+TC_0025,/,GET,NLP,NLP test scenario 25,,200,healthy,HIGH
+TC_0026,/predict/batch,POST,Performance,Performance test scenario 26,"{'texts': ['Shop giao nhanh', 'Đáng tiền', 'Tạm ổn', 'Được mỗi cái mã']}",200,valid batch prediction,HIGH
+TC_0027,/predict/batch,POST,Validation,Validation test scenario 27,"{'texts': ['Đáng tiền', 'Tạm ổn', 'Không tốt chút nào']}",200,valid batch prediction,LOW
+TC_0028,/predict/batch,POST,Reliability,Reliability test scenario 28,"{'texts': ['Không như quảng cáo', 'Được mỗi cái mã', 'Đáng tiền', 'Không tốt chút nào', 'Bình thường']}",200,valid batch prediction,LOW
+TC_0029,/predict,POST,Batch,Batch test scenario 29,{'text': 'Không tệ lắm'},200,positive,MEDIUM
+TC_0030,/predict/batch,POST,Performance,Performance test scenario 30,"{'texts': ['Không tệ lắm', 'Bình thường']}",200,valid batch prediction,MEDIUM
+TC_0031,/health,GET,Performance,Performance test scenario 31,,200,healthy,LOW
+TC_0032,/health,GET,NLP,NLP test scenario 32,,200,healthy,HIGH
+TC_0033,/health,GET,Adversarial,Adversarial test scenario 33,,200,healthy,MEDIUM
+TC_0034,/health,GET,Performance,Performance test scenario 34,,200,healthy,LOW
+TC_0035,/predict,POST,Batch,Batch test scenario 35,{'text': 'Được mỗi cái mã'},200,negative,MEDIUM
+TC_0036,/predict,POST,Performance,Performance test scenario 36,{'text': 'Tạm ổn'},200,neutral,HIGH
+TC_0037,/predict/batch,POST,Adversarial,Adversarial test scenario 37,"{'texts': ['Sản phẩm rất tốt', 'Tạm ổn', 'Bình thường', 'Đáng tiền']}",200,valid batch prediction,HIGH
+TC_0038,/predict,POST,Functional,Functional test scenario 38,{'text': 'san pham rat tot'},200,positive,LOW
+TC_0039,/predict/batch,POST,Security,Security test scenario 39,"{'texts': ['Không tệ lắm', 'Quá tệ', 'Được mỗi cái mã', 'Shop giao nhanh']}",200,valid batch prediction,LOW
+TC_0040,/predict,POST,Regression,Regression test scenario 40,{'text': 'Đáng tiền'},200,positive,MEDIUM
+TC_0041,/predict/batch,POST,Edge,Edge test scenario 41,"{'texts': ['Bình thường', 'Không tốt chút nào', 'Không như quảng cáo']}",200,valid batch prediction,MEDIUM
+TC_0042,/health,GET,Batch,Batch test scenario 42,,200,healthy,MEDIUM
+TC_0043,/health,GET,Security,Security test scenario 43,,200,healthy,MEDIUM
+TC_0044,/predict,POST,Edge,Edge test scenario 44,{'text': 'Quá tệ'},200,negative,LOW
+TC_0045,/health,GET,Edge,Edge test scenario 45,,200,healthy,HIGH
+TC_0046,/health,GET,Performance,Performance test scenario 46,,200,healthy,LOW
+TC_0047,/health,GET,Validation,Validation test scenario 47,,200,healthy,LOW
+TC_0048,/predict,POST,Unicode,Unicode test scenario 48,{'text': 'Sản phẩm rất tốt'},200,positive,LOW
+TC_0049,/predict/batch,POST,Validation,Validation test scenario 49,"{'texts': ['Không như quảng cáo', 'Shop giao nhanh']}",200,valid batch prediction,LOW
+TC_0050,/predict,POST,Regression,Regression test scenario 50,{'text': 'Không tốt chút nào'},200,negative,MEDIUM
+TC_0051,/health,GET,Reliability,Reliability test scenario 51,,200,healthy,HIGH
+TC_0052,/health,GET,Regression,Regression test scenario 52,,200,healthy,HIGH
+TC_0053,/health,GET,Security,Security test scenario 53,,200,healthy,MEDIUM
+TC_0054,/health,GET,Adversarial,Adversarial test scenario 54,,200,healthy,MEDIUM
+TC_0055,/,GET,Functional,Functional test scenario 55,,200,healthy,HIGH
+TC_0056,/,GET,Regression,Regression test scenario 56,,200,healthy,LOW
+TC_0057,/health,GET,Unicode,Unicode test scenario 57,,200,healthy,LOW
+TC_0058,/predict/batch,POST,Performance,Performance test scenario 58,"{'texts': ['Không tệ lắm', 'Sản phẩm rất tốt', 'Không như quảng cáo']}",200,valid batch prediction,MEDIUM
+TC_0059,/predict/batch,POST,Performance,Performance test scenario 59,"{'texts': ['Bình thường', 'Đáng tiền', 'Không tốt chút nào', 'Quá tệ']}",200,valid batch prediction,LOW
+TC_0060,/health,GET,Edge,Edge test scenario 60,,200,healthy,HIGH
+TC_0061,/,GET,Functional,Functional test scenario 61,,200,healthy,HIGH
+TC_0062,/predict/batch,POST,Functional,Functional test scenario 62,"{'texts': ['Bình thường', 'Không như quảng cáo', 'Đáng tiền']}",200,valid batch prediction,MEDIUM
+TC_0063,/,GET,Edge,Edge test scenario 63,,200,healthy,MEDIUM
+TC_0064,/predict,POST,Regression,Regression test scenario 64,{'text': 'Tạm ổn'},200,neutral,HIGH
+TC_0065,/predict/batch,POST,NLP,NLP test scenario 65,"{'texts': ['Không như quảng cáo', 'Không tệ lắm', 'Bình thường', 'Được mỗi cái mã']}",200,valid batch prediction,LOW
+TC_0066,/,GET,Regression,Regression test scenario 66,,200,healthy,HIGH
+TC_0067,/predict,POST,Edge,Edge test scenario 67,{'text': 'Không tốt chút nào'},200,negative,MEDIUM
+TC_0068,/,GET,Adversarial,Adversarial test scenario 68,,200,healthy,LOW
+TC_0069,/predict,POST,Security,Security test scenario 69,{'text': 'Không tốt chút nào'},200,negative,MEDIUM
+TC_0070,/,GET,Performance,Performance test scenario 70,,200,healthy,HIGH
+TC_0071,/,GET,NLP,NLP test scenario 71,,200,healthy,MEDIUM
+TC_0072,/health,GET,Batch,Batch test scenario 72,,200,healthy,HIGH
+TC_0073,/health,GET,Security,Security test scenario 73,,200,healthy,MEDIUM
+TC_0074,/predict/batch,POST,Unicode,Unicode test scenario 74,"{'texts': ['Không tệ lắm', 'Sản phẩm rất tốt']}",200,valid batch prediction,LOW
+TC_0075,/,GET,Reliability,Reliability test scenario 75,,200,healthy,HIGH
+TC_0076,/predict/batch,POST,Validation,Validation test scenario 76,"{'texts': ['Tạm ổn', 'Không như quảng cáo', 'Quá tệ', 'Đáng tiền', 'Shop giao nhanh']}",200,valid batch prediction,MEDIUM
+TC_0077,/predict,POST,Security,Security test scenario 77,{'text': 'Shop giao nhanh'},200,positive,HIGH
+TC_0078,/predict/batch,POST,Reliability,Reliability test scenario 78,"{'texts': ['Sản phẩm rất tốt', 'Bình thường', 'Không tệ lắm', 'Đáng tiền', 'Shop giao nhanh']}",200,valid batch prediction,LOW
+TC_0079,/predict,POST,Validation,Validation test scenario 79,{'text': 'Quá tệ'},200,negative,MEDIUM
+TC_0080,/predict/batch,POST,Unicode,Unicode test scenario 80,"{'texts': ['Không tốt chút nào', 'Quá tệ', 'Được mỗi cái mã', 'Sản phẩm rất tốt']}",200,valid batch prediction,HIGH
+TC_0081,/,GET,Regression,Regression test scenario 81,,200,healthy,HIGH
+TC_0082,/,GET,Validation,Validation test scenario 82,,200,healthy,LOW
+TC_0083,/predict/batch,POST,Batch,Batch test scenario 83,"{'texts': ['Bình thường', 'Đáng tiền']}",200,valid batch prediction,MEDIUM
+TC_0084,/,GET,Unicode,Unicode test scenario 84,,200,healthy,LOW
+TC_0085,/predict/batch,POST,Reliability,Reliability test scenario 85,"{'texts': ['Shop giao nhanh', 'Bình thường', 'Không tốt chút nào']}",200,valid batch prediction,MEDIUM
+TC_0086,/,GET,Edge,Edge test scenario 86,,200,healthy,MEDIUM
+TC_0087,/health,GET,NLP,NLP test scenario 87,,200,healthy,MEDIUM
+TC_0088,/predict/batch,POST,Validation,Validation test scenario 88,"{'texts': ['Tạm ổn', 'Được mỗi cái mã', 'Shop giao nhanh', 'Sản phẩm rất tốt']}",200,valid batch prediction,MEDIUM
+TC_0089,/,GET,Edge,Edge test scenario 89,,200,healthy,HIGH
+TC_0090,/predict/batch,POST,Regression,Regression test scenario 90,"{'texts': ['Đáng tiền', 'Không tệ lắm', 'Sản phẩm rất tốt', 'Không như quảng cáo']}",200,valid batch prediction,LOW
+TC_0091,/,GET,Adversarial,Adversarial test scenario 91,,200,healthy,MEDIUM
+TC_0092,/predict/batch,POST,Validation,Validation test scenario 92,"{'texts': ['Sản phẩm rất tốt', 'Shop giao nhanh']}",200,valid batch prediction,MEDIUM
+TC_0093,/predict/batch,POST,Security,Security test scenario 93,"{'texts': ['Không như quảng cáo', 'Tạm ổn']}",200,valid batch prediction,HIGH
+TC_0094,/health,GET,Functional,Functional test scenario 94,,200,healthy,MEDIUM
+TC_0095,/,GET,Functional,Functional test scenario 95,,200,healthy,HIGH
+TC_0096,/predict,POST,Regression,Regression test scenario 96,{'text': 'đỉnh vcl'},200,positive,MEDIUM
+TC_0097,/,GET,Edge,Edge test scenario 97,,200,healthy,HIGH
+TC_0098,/predict,POST,Performance,Performance test scenario 98,{'text': 'Đáng tiền'},200,positive,HIGH
+TC_0099,/health,GET,NLP,NLP test scenario 99,,200,healthy,HIGH
+TC_0100,/health,GET,Validation,Validation test scenario 100,,200,healthy,HIGH
+TC_0101,/predict,POST,Regression,Regression test scenario 101,{'text': 'Quá tệ'},200,negative,MEDIUM
+TC_0102,/predict,POST,Functional,Functional test scenario 102,{'text': 'Sản phẩm rất tốt'},200,positive,LOW
+TC_0103,/,GET,Security,Security test scenario 103,,200,healthy,HIGH
+TC_0104,/predict,POST,Performance,Performance test scenario 104,{'text': 'Tạm ổn'},200,neutral,MEDIUM
+TC_0105,/predict,POST,Unicode,Unicode test scenario 105,{'text': 'Sản phẩm rất tốt'},200,positive,LOW
+TC_0106,/predict,POST,Reliability,Reliability test scenario 106,{'text': 'Đáng tiền'},200,positive,LOW
+TC_0107,/,GET,Performance,Performance test scenario 107,,200,healthy,MEDIUM
+TC_0108,/,GET,Adversarial,Adversarial test scenario 108,,200,healthy,MEDIUM
+TC_0109,/predict/batch,POST,Regression,Regression test scenario 109,"{'texts': ['Shop giao nhanh', 'Quá tệ', 'Không tệ lắm']}",200,valid batch prediction,HIGH
+TC_0110,/predict/batch,POST,Regression,Regression test scenario 110,"{'texts': ['Tạm ổn', 'Được mỗi cái mã']}",200,valid batch prediction,HIGH
+TC_0111,/predict/batch,POST,Adversarial,Adversarial test scenario 111,"{'texts': ['Không tốt chút nào', 'Không như quảng cáo', 'Không tệ lắm', 'Bình thường', 'Quá tệ']}",200,valid batch prediction,HIGH
+TC_0112,/predict,POST,Unicode,Unicode test scenario 112,{'text': 'Sản phẩm rất tốt'},200,positive,MEDIUM
+TC_0113,/health,GET,Security,Security test scenario 113,,200,healthy,MEDIUM
+TC_0114,/health,GET,Unicode,Unicode test scenario 114,,200,healthy,LOW
+TC_0115,/predict/batch,POST,Edge,Edge test scenario 115,"{'texts': ['Quá tệ', 'Shop giao nhanh']}",200,valid batch prediction,MEDIUM
+TC_0116,/,GET,Performance,Performance test scenario 116,,200,healthy,MEDIUM
+TC_0117,/,GET,Edge,Edge test scenario 117,,200,healthy,LOW
+TC_0118,/health,GET,Validation,Validation test scenario 118,,200,healthy,MEDIUM
+TC_0119,/predict,POST,Edge,Edge test scenario 119,{'text': 'Đáng tiền'},200,positive,LOW
+TC_0120,/,GET,Edge,Edge test scenario 120,,200,healthy,MEDIUM
+TC_0121,/predict,POST,Batch,Batch test scenario 121,{'text': 'Không như quảng cáo'},200,negative,HIGH
+TC_0122,/predict/batch,POST,Performance,Performance test scenario 122,"{'texts': ['Sản phẩm rất tốt', 'Không tốt chút nào']}",200,valid batch prediction,MEDIUM
+TC_0123,/,GET,NLP,NLP test scenario 123,,200,healthy,MEDIUM
+TC_0124,/predict/batch,POST,Adversarial,Adversarial test scenario 124,"{'texts': ['Quá tệ', 'Không tốt chút nào', 'Không tệ lắm']}",200,valid batch prediction,HIGH
+TC_0125,/health,GET,Performance,Performance test scenario 125,,200,healthy,HIGH
+TC_0126,/predict,POST,Batch,Batch test scenario 126,"{'text': ""' OR 1=1 --""}",200,negative,MEDIUM
+TC_0127,/predict/batch,POST,Batch,Batch test scenario 127,"{'texts': ['Sản phẩm rất tốt', 'Không tốt chút nào', 'Không tệ lắm', 'Quá tệ', 'Tạm ổn']}",200,valid batch prediction,LOW
+TC_0128,/,GET,Functional,Functional test scenario 128,,200,healthy,MEDIUM
+TC_0129,/predict,POST,Functional,Functional test scenario 129,{'text': 'san pham rat tot'},200,positive,MEDIUM
+TC_0130,/,GET,Functional,Functional test scenario 130,,200,healthy,LOW
+TC_0131,/,GET,Unicode,Unicode test scenario 131,,200,healthy,HIGH
+TC_0132,/,GET,Validation,Validation test scenario 132,,200,healthy,MEDIUM
+TC_0133,/predict,POST,Unicode,Unicode test scenario 133,{'text': 'Tạm ổn'},200,neutral,MEDIUM
+TC_0134,/predict,POST,Edge,Edge test scenario 134,{'text': 'Được mỗi cái mã'},200,negative,HIGH
+TC_0135,/health,GET,Batch,Batch test scenario 135,,200,healthy,LOW
+TC_0136,/predict/batch,POST,NLP,NLP test scenario 136,"{'texts': ['Tạm ổn', 'Bình thường', 'Quá tệ', 'Không tệ lắm']}",200,valid batch prediction,MEDIUM
+TC_0137,/predict/batch,POST,Edge,Edge test scenario 137,"{'texts': ['Không tốt chút nào', 'Tạm ổn', 'Shop giao nhanh']}",200,valid batch prediction,MEDIUM
+TC_0138,/,GET,Adversarial,Adversarial test scenario 138,,200,healthy,LOW
+TC_0139,/predict/batch,POST,Regression,Regression test scenario 139,"{'texts': ['Được mỗi cái mã', 'Không tệ lắm', 'Không như quảng cáo', 'Quá tệ', 'Sản phẩm rất tốt']}",200,valid batch prediction,HIGH
+TC_0140,/health,GET,Batch,Batch test scenario 140,,200,healthy,HIGH
+TC_0141,/,GET,Reliability,Reliability test scenario 141,,200,healthy,LOW
+TC_0142,/predict,POST,Functional,Functional test scenario 142,{'text': '좋아요 rất tốt'},200,positive,LOW
+TC_0143,/predict/batch,POST,Edge,Edge test scenario 143,"{'texts': ['Shop giao nhanh', 'Tạm ổn', 'Không như quảng cáo', 'Được mỗi cái mã']}",200,valid batch prediction,HIGH
+TC_0144,/health,GET,Unicode,Unicode test scenario 144,,200,healthy,LOW
+TC_0145,/,GET,Performance,Performance test scenario 145,,200,healthy,HIGH
+TC_0146,/,GET,Reliability,Reliability test scenario 146,,200,healthy,LOW
+TC_0147,/predict,POST,Reliability,Reliability test scenario 147,{'text': 'Không như quảng cáo'},200,negative,LOW
+TC_0148,/,GET,Functional,Functional test scenario 148,,200,healthy,HIGH
+TC_0149,/,GET,Performance,Performance test scenario 149,,200,healthy,MEDIUM
+TC_0150,/health,GET,Security,Security test scenario 150,,200,healthy,LOW
+TC_0151,/,GET,Adversarial,Adversarial test scenario 151,,200,healthy,HIGH
+TC_0152,/health,GET,Functional,Functional test scenario 152,,200,healthy,LOW
+TC_0153,/predict,POST,Edge,Edge test scenario 153,{'text': '123456'},200,neutral,HIGH
+TC_0154,/predict/batch,POST,Regression,Regression test scenario 154,"{'texts': ['Được mỗi cái mã', 'Tạm ổn']}",200,valid batch prediction,LOW
+TC_0155,/,GET,Unicode,Unicode test scenario 155,,200,healthy,LOW
+TC_0156,/,GET,Adversarial,Adversarial test scenario 156,,200,healthy,HIGH
+TC_0157,/predict/batch,POST,Edge,Edge test scenario 157,"{'texts': ['Đáng tiền', 'Không tệ lắm', 'Tạm ổn']}",200,valid batch prediction,LOW
+TC_0158,/predict,POST,Security,Security test scenario 158,{'text': 'Bình thường'},200,neutral,LOW
+TC_0159,/predict,POST,Functional,Functional test scenario 159,{'text': 'ảo ma canada'},200,negative,MEDIUM
+TC_0160,/health,GET,Security,Security test scenario 160,,200,healthy,LOW
+TC_0161,/health,GET,Performance,Performance test scenario 161,,200,healthy,MEDIUM
+TC_0162,/health,GET,NLP,NLP test scenario 162,,200,healthy,HIGH
+TC_0163,/health,GET,NLP,NLP test scenario 163,,200,healthy,HIGH
+TC_0164,/,GET,Reliability,Reliability test scenario 164,,200,healthy,LOW
+TC_0165,/predict,POST,Security,Security test scenario 165,{'text': 'Quá tệ'},200,negative,HIGH
+TC_0166,/,GET,Unicode,Unicode test scenario 166,,200,healthy,HIGH
+TC_0167,/predict/batch,POST,Performance,Performance test scenario 167,"{'texts': ['Không như quảng cáo', 'Sản phẩm rất tốt', 'Quá tệ', 'Không tốt chút nào']}",200,valid batch prediction,MEDIUM
+TC_0168,/predict,POST,Batch,Batch test scenario 168,{'text': 'Không tốt chút nào'},200,negative,MEDIUM
+TC_0169,/health,GET,NLP,NLP test scenario 169,,200,healthy,HIGH
+TC_0170,/predict,POST,Batch,Batch test scenario 170,{'text': 'Bình thường'},200,neutral,MEDIUM
+TC_0171,/health,GET,Functional,Functional test scenario 171,,200,healthy,LOW
+TC_0172,/health,GET,Adversarial,Adversarial test scenario 172,,200,healthy,MEDIUM
+TC_0173,/health,GET,Edge,Edge test scenario 173,,200,healthy,HIGH
+TC_0174,/,GET,NLP,NLP test scenario 174,,200,healthy,MEDIUM
+TC_0175,/health,GET,Edge,Edge test scenario 175,,200,healthy,MEDIUM
+TC_0176,/,GET,Reliability,Reliability test scenario 176,,200,healthy,LOW
+TC_0177,/health,GET,Adversarial,Adversarial test scenario 177,,200,healthy,LOW
+TC_0178,/predict/batch,POST,Functional,Functional test scenario 178,"{'texts': ['Tạm ổn', 'Shop giao nhanh', 'Không như quảng cáo']}",200,valid batch prediction,LOW
+TC_0179,/health,GET,Functional,Functional test scenario 179,,200,healthy,HIGH
+TC_0180,/predict/batch,POST,Adversarial,Adversarial test scenario 180,"{'texts': ['Không tốt chút nào', 'Không như quảng cáo', 'Bình thường', 'Đáng tiền']}",200,valid batch prediction,LOW
+TC_0181,/,GET,Adversarial,Adversarial test scenario 181,,200,healthy,HIGH
+TC_0182,/predict,POST,Adversarial,Adversarial test scenario 182,{'text': 'Được mỗi cái mã'},200,negative,MEDIUM
+TC_0183,/health,GET,Adversarial,Adversarial test scenario 183,,200,healthy,HIGH
+TC_0184,/predict,POST,Edge,Edge test scenario 184,{'text': 'Đáng tiền'},200,positive,HIGH
+TC_0185,/predict,POST,Reliability,Reliability test scenario 185,{'text': '좋아요 rất tốt'},200,positive,HIGH
+TC_0186,/health,GET,Reliability,Reliability test scenario 186,,200,healthy,LOW
+TC_0187,/predict/batch,POST,Adversarial,Adversarial test scenario 187,"{'texts': ['Không như quảng cáo', 'Shop giao nhanh', 'Đáng tiền', 'Bình thường']}",200,valid batch prediction,LOW
+TC_0188,/health,GET,Regression,Regression test scenario 188,,200,healthy,LOW
+TC_0189,/predict,POST,Edge,Edge test scenario 189,{'text': 'Đáng tiền'},200,positive,HIGH
+TC_0190,/predict/batch,POST,Performance,Performance test scenario 190,"{'texts': ['Không như quảng cáo', 'Được mỗi cái mã', 'Không tệ lắm', 'Shop giao nhanh', 'Quá tệ']}",200,valid batch prediction,MEDIUM
+TC_0191,/predict,POST,NLP,NLP test scenario 191,{'text': 'Không tốt chút nào'},200,negative,LOW
+TC_0192,/predict/batch,POST,Functional,Functional test scenario 192,"{'texts': ['Quá tệ', 'Không tệ lắm', 'Shop giao nhanh']}",200,valid batch prediction,HIGH
+TC_0193,/predict/batch,POST,Batch,Batch test scenario 193,"{'texts': ['Quá tệ', 'Shop giao nhanh', 'Đáng tiền', 'Không tệ lắm']}",200,valid batch prediction,MEDIUM
+TC_0194,/predict,POST,Reliability,Reliability test scenario 194,{'text': 'Shop giao nhanh'},200,positive,HIGH
+TC_0195,/predict/batch,POST,Unicode,Unicode test scenario 195,"{'texts': ['Shop giao nhanh', 'Không tệ lắm', 'Được mỗi cái mã', 'Tạm ổn', 'Không tốt chút nào']}",200,valid batch prediction,LOW
+TC_0196,/,GET,Security,Security test scenario 196,,200,healthy,HIGH
+TC_0197,/predict,POST,Edge,Edge test scenario 197,{'text': 'Không tệ lắm'},200,positive,MEDIUM
+TC_0198,/health,GET,Security,Security test scenario 198,,200,healthy,HIGH
+TC_0199,/,GET,Validation,Validation test scenario 199,,200,healthy,HIGH
+TC_0200,/health,GET,Unicode,Unicode test scenario 200,,200,healthy,HIGH
+TC_0201,/predict,POST,Regression,Regression test scenario 201,{'text': 'Đáng tiền'},200,positive,HIGH
+TC_0202,/predict,POST,Functional,Functional test scenario 202,{'text': 'Không tệ lắm'},200,positive,MEDIUM
+TC_0203,/predict/batch,POST,Validation,Validation test scenario 203,"{'texts': ['Đáng tiền', 'Không tệ lắm', 'Được mỗi cái mã', 'Bình thường', 'Shop giao nhanh']}",200,valid batch prediction,LOW
+TC_0204,/health,GET,Reliability,Reliability test scenario 204,,200,healthy,MEDIUM
+TC_0205,/,GET,Performance,Performance test scenario 205,,200,healthy,LOW
+TC_0206,/health,GET,Functional,Functional test scenario 206,,200,healthy,HIGH
+TC_0207,/,GET,Reliability,Reliability test scenario 207,,200,healthy,LOW
+TC_0208,/,GET,Functional,Functional test scenario 208,,200,healthy,LOW
+TC_0209,/predict/batch,POST,Adversarial,Adversarial test scenario 209,"{'texts': ['Không như quảng cáo', 'Được mỗi cái mã', 'Đáng tiền']}",200,valid batch prediction,LOW
+TC_0210,/health,GET,Batch,Batch test scenario 210,,200,healthy,MEDIUM
+TC_0211,/,GET,Functional,Functional test scenario 211,,200,healthy,LOW
+TC_0212,/predict/batch,POST,Adversarial,Adversarial test scenario 212,"{'texts': ['Shop giao nhanh', 'Không tệ lắm', 'Không như quảng cáo', 'Quá tệ', 'Không tốt chút nào']}",200,valid batch prediction,MEDIUM
+TC_0213,/predict/batch,POST,Edge,Edge test scenario 213,"{'texts': ['Không như quảng cáo', 'Đáng tiền']}",200,valid batch prediction,MEDIUM
+TC_0214,/predict,POST,Performance,Performance test scenario 214,{'text': 'Quá tệ'},200,negative,LOW
+TC_0215,/predict,POST,Security,Security test scenario 215,{'text': 'Không tệ lắm'},200,positive,HIGH
+TC_0216,/predict,POST,Adversarial,Adversarial test scenario 216,{'text': 'đỉnh vcl'},200,positive,MEDIUM
+TC_0217,/predict/batch,POST,Batch,Batch test scenario 217,"{'texts': ['Bình thường', 'Quá tệ', 'Shop giao nhanh']}",200,valid batch prediction,MEDIUM
+TC_0218,/,GET,Security,Security test scenario 218,,200,healthy,HIGH
+TC_0219,/,GET,Edge,Edge test scenario 219,,200,healthy,LOW
+TC_0220,/health,GET,Adversarial,Adversarial test scenario 220,,200,healthy,HIGH
+TC_0221,/health,GET,Edge,Edge test scenario 221,,200,healthy,MEDIUM
+TC_0222,/,GET,Adversarial,Adversarial test scenario 222,,200,healthy,HIGH
+TC_0223,/,GET,Adversarial,Adversarial test scenario 223,,200,healthy,HIGH
+TC_0224,/predict/batch,POST,Adversarial,Adversarial test scenario 224,"{'texts': ['Bình thường', 'Không như quảng cáo']}",200,valid batch prediction,LOW
+TC_0225,/health,GET,Reliability,Reliability test scenario 225,,200,healthy,MEDIUM
+TC_0226,/health,GET,Batch,Batch test scenario 226,,200,healthy,MEDIUM
+TC_0227,/predict/batch,POST,Batch,Batch test scenario 227,"{'texts': ['Quá tệ', 'Không tốt chút nào', 'Được mỗi cái mã', 'Không như quảng cáo']}",200,valid batch prediction,HIGH
+TC_0228,/health,GET,Performance,Performance test scenario 228,,200,healthy,HIGH
+TC_0229,/health,GET,Performance,Performance test scenario 229,,200,healthy,HIGH
+TC_0230,/predict,POST,Edge,Edge test scenario 230,{'text': 'Đáng tiền'},200,positive,HIGH
+TC_0231,/predict,POST,Unicode,Unicode test scenario 231,{'text': 'Tạm ổn'},200,neutral,MEDIUM
+TC_0232,/predict/batch,POST,Batch,Batch test scenario 232,"{'texts': ['Shop giao nhanh', 'Đáng tiền', 'Bình thường', 'Không tốt chút nào']}",200,valid batch prediction,HIGH
+TC_0233,/predict,POST,Edge,Edge test scenario 233,{'text': 'Bình thường'},200,neutral,LOW
+TC_0234,/predict,POST,Edge,Edge test scenario 234,{'text': '!!!!!'},200,neutral,MEDIUM
+TC_0235,/predict/batch,POST,Functional,Functional test scenario 235,"{'texts': ['Không như quảng cáo', 'Sản phẩm rất tốt', 'Đáng tiền']}",200,valid batch prediction,MEDIUM
+TC_0236,/predict/batch,POST,Adversarial,Adversarial test scenario 236,"{'texts': ['Tạm ổn', 'Không tốt chút nào', 'Quá tệ']}",200,valid batch prediction,MEDIUM
+TC_0237,/health,GET,Batch,Batch test scenario 237,,200,healthy,LOW
+TC_0238,/predict/batch,POST,Adversarial,Adversarial test scenario 238,"{'texts': ['Bình thường', 'Shop giao nhanh']}",200,valid batch prediction,MEDIUM
+TC_0239,/predict/batch,POST,Functional,Functional test scenario 239,"{'texts': ['Không như quảng cáo', 'Shop giao nhanh']}",200,valid batch prediction,HIGH
+TC_0240,/health,GET,Functional,Functional test scenario 240,,200,healthy,HIGH
+TC_0241,/predict/batch,POST,Regression,Regression test scenario 241,"{'texts': ['Bình thường', 'Đáng tiền']}",200,valid batch prediction,MEDIUM
+TC_0242,/predict,POST,Security,Security test scenario 242,{'text': '123456'},200,neutral,LOW
+TC_0243,/health,GET,Adversarial,Adversarial test scenario 243,,200,healthy,MEDIUM
+TC_0244,/,GET,Performance,Performance test scenario 244,,200,healthy,MEDIUM
+TC_0245,/health,GET,Edge,Edge test scenario 245,,200,healthy,HIGH
+TC_0246,/predict/batch,POST,Regression,Regression test scenario 246,"{'texts': ['Sản phẩm rất tốt', 'Không tệ lắm', 'Tạm ổn', 'Không tốt chút nào']}",200,valid batch prediction,HIGH
+TC_0247,/health,GET,Adversarial,Adversarial test scenario 247,,200,healthy,LOW
+TC_0248,/predict,POST,Edge,Edge test scenario 248,{'text': 'Tạm ổn'},200,neutral,LOW
+TC_0249,/,GET,NLP,NLP test scenario 249,,200,healthy,MEDIUM
+TC_0250,/health,GET,Unicode,Unicode test scenario 250,,200,healthy,HIGH
+TC_0251,/predict/batch,POST,Regression,Regression test scenario 251,"{'texts': ['Không tốt chút nào', 'Không tệ lắm', 'Shop giao nhanh']}",200,valid batch prediction,HIGH
+TC_0252,/predict/batch,POST,Adversarial,Adversarial test scenario 252,"{'texts': ['Không tốt chút nào', 'Sản phẩm rất tốt']}",200,valid batch prediction,LOW
+TC_0253,/,GET,Batch,Batch test scenario 253,,200,healthy,LOW
+TC_0254,/health,GET,Security,Security test scenario 254,,200,healthy,MEDIUM
+TC_0255,/predict/batch,POST,Adversarial,Adversarial test scenario 255,"{'texts': ['Sản phẩm rất tốt', 'Tạm ổn', 'Quá tệ', 'Không như quảng cáo']}",200,valid batch prediction,MEDIUM
+TC_0256,/predict/batch,POST,Security,Security test scenario 256,"{'texts': ['Shop giao nhanh', 'Không tệ lắm', 'Không tốt chút nào', 'Không như quảng cáo']}",200,valid batch prediction,MEDIUM
+TC_0257,/predict,POST,Functional,Functional test scenario 257,{'text': 'Được mỗi cái mã'},200,negative,LOW
+TC_0258,/predict/batch,POST,Regression,Regression test scenario 258,"{'texts': ['Sản phẩm rất tốt', 'Đáng tiền', 'Quá tệ', 'Bình thường', 'Không tốt chút nào']}",200,valid batch prediction,MEDIUM
+TC_0259,/,GET,Validation,Validation test scenario 259,,200,healthy,HIGH
+TC_0260,/predict,POST,Batch,Batch test scenario 260,{'text': 'Quá tệ'},200,negative,HIGH
+TC_0261,/,GET,Unicode,Unicode test scenario 261,,200,healthy,LOW
+TC_0262,/predict/batch,POST,Adversarial,Adversarial test scenario 262,"{'texts': ['Không tốt chút nào', 'Không như quảng cáo']}",200,valid batch prediction,HIGH
+TC_0263,/predict/batch,POST,Validation,Validation test scenario 263,"{'texts': ['Tạm ổn', 'Đáng tiền', 'Không như quảng cáo', 'Bình thường', 'Không tệ lắm']}",200,valid batch prediction,LOW
+TC_0264,/,GET,Adversarial,Adversarial test scenario 264,,200,healthy,LOW
+TC_0265,/predict,POST,Functional,Functional test scenario 265,{'text': 'Không như quảng cáo'},200,negative,MEDIUM
+TC_0266,/predict,POST,Batch,Batch test scenario 266,{'text': '<script>alert(1)</script>'},200,negative,HIGH
+TC_0267,/,GET,Batch,Batch test scenario 267,,200,healthy,HIGH
+TC_0268,/,GET,NLP,NLP test scenario 268,,200,healthy,HIGH
+TC_0269,/health,GET,NLP,NLP test scenario 269,,200,healthy,LOW
+TC_0270,/,GET,Regression,Regression test scenario 270,,200,healthy,LOW
+TC_0271,/,GET,NLP,NLP test scenario 271,,200,healthy,MEDIUM
+TC_0272,/predict/batch,POST,Regression,Regression test scenario 272,"{'texts': ['Sản phẩm rất tốt', 'Không tốt chút nào']}",200,valid batch prediction,LOW
+TC_0273,/predict,POST,Performance,Performance test scenario 273,{'text': '좋아요 rất tốt'},200,positive,MEDIUM
+TC_0274,/predict,POST,Batch,Batch test scenario 274,{'text': 'Không tốt chút nào'},200,negative,LOW
+TC_0275,/predict,POST,Performance,Performance test scenario 275,{'text': 'Quá tệ'},200,negative,LOW
+TC_0276,/health,GET,Edge,Edge test scenario 276,,200,healthy,HIGH
+TC_0277,/,GET,Security,Security test scenario 277,,200,healthy,HIGH
+TC_0278,/predict,POST,Unicode,Unicode test scenario 278,{'text': 'Không như quảng cáo'},200,negative,MEDIUM
+TC_0279,/health,GET,Performance,Performance test scenario 279,,200,healthy,HIGH
+TC_0280,/,GET,Regression,Regression test scenario 280,,200,healthy,MEDIUM
+TC_0281,/health,GET,Reliability,Reliability test scenario 281,,200,healthy,LOW
+TC_0282,/,GET,Unicode,Unicode test scenario 282,,200,healthy,MEDIUM
+TC_0283,/health,GET,Functional,Functional test scenario 283,,200,healthy,LOW
+TC_0284,/predict/batch,POST,Security,Security test scenario 284,"{'texts': ['Không như quảng cáo', 'Bình thường', 'Đáng tiền']}",200,valid batch prediction,HIGH
+TC_0285,/health,GET,Functional,Functional test scenario 285,,200,healthy,MEDIUM
+TC_0286,/,GET,Adversarial,Adversarial test scenario 286,,200,healthy,HIGH
+TC_0287,/predict/batch,POST,Functional,Functional test scenario 287,"{'texts': ['Đáng tiền', 'Không tệ lắm']}",200,valid batch prediction,MEDIUM
+TC_0288,/,GET,Regression,Regression test scenario 288,,200,healthy,MEDIUM
+TC_0289,/,GET,Adversarial,Adversarial test scenario 289,,200,healthy,LOW
+TC_0290,/predict,POST,Functional,Functional test scenario 290,{'text': 'Bình thường'},200,neutral,LOW
+TC_0291,/health,GET,NLP,NLP test scenario 291,,200,healthy,HIGH
+TC_0292,/predict/batch,POST,Reliability,Reliability test scenario 292,"{'texts': ['Đáng tiền', 'Shop giao nhanh', 'Quá tệ', 'Bình thường']}",200,valid batch prediction,HIGH
+TC_0293,/predict/batch,POST,Validation,Validation test scenario 293,"{'texts': ['Shop giao nhanh', 'Không như quảng cáo', 'Sản phẩm rất tốt', 'Bình thường']}",200,valid batch prediction,MEDIUM
+TC_0294,/,GET,NLP,NLP test scenario 294,,200,healthy,LOW
+TC_0295,/predict,POST,Validation,Validation test scenario 295,{'text': 'Không tệ lắm'},200,positive,HIGH
+TC_0296,/predict,POST,Batch,Batch test scenario 296,{'text': 'Không tốt chút nào'},200,negative,HIGH
+TC_0297,/predict/batch,POST,Adversarial,Adversarial test scenario 297,"{'texts': ['Tạm ổn', 'Quá tệ', 'Được mỗi cái mã']}",200,valid batch prediction,MEDIUM
+TC_0298,/,GET,NLP,NLP test scenario 298,,200,healthy,HIGH
+TC_0299,/predict/batch,POST,Validation,Validation test scenario 299,"{'texts': ['Tạm ổn', 'Shop giao nhanh', 'Không tệ lắm', 'Bình thường']}",200,valid batch prediction,MEDIUM
+TC_0300,/health,GET,Functional,Functional test scenario 300,,200,healthy,LOW
+TC_0301,/predict/batch,POST,NLP,NLP test scenario 301,"{'texts': ['Không như quảng cáo', 'Tạm ổn', 'Quá tệ']}",200,valid batch prediction,LOW
+TC_0302,/,GET,Batch,Batch test scenario 302,,200,healthy,MEDIUM
+TC_0303,/,GET,Reliability,Reliability test scenario 303,,200,healthy,LOW
+TC_0304,/,GET,Performance,Performance test scenario 304,,200,healthy,MEDIUM
+TC_0305,/health,GET,Batch,Batch test scenario 305,,200,healthy,LOW
+TC_0306,/health,GET,Functional,Functional test scenario 306,,200,healthy,MEDIUM
+TC_0307,/,GET,Validation,Validation test scenario 307,,200,healthy,LOW
+TC_0308,/predict,POST,Reliability,Reliability test scenario 308,{'text': 'Shop giao nhanh'},200,positive,HIGH
+TC_0309,/predict/batch,POST,Performance,Performance test scenario 309,"{'texts': ['Đáng tiền', 'Không tốt chút nào', 'Quá tệ', 'Sản phẩm rất tốt', 'Tạm ổn']}",200,valid batch prediction,LOW
+TC_0310,/predict,POST,NLP,NLP test scenario 310,{'text': 'Bình thường'},200,neutral,HIGH
+TC_0311,/predict,POST,NLP,NLP test scenario 311,{'text': '!!!!!'},200,neutral,HIGH
+TC_0312,/health,GET,Functional,Functional test scenario 312,,200,healthy,LOW
+TC_0313,/predict,POST,Edge,Edge test scenario 313,{'text': 'Không như quảng cáo'},200,negative,HIGH
+TC_0314,/,GET,Reliability,Reliability test scenario 314,,200,healthy,LOW
+TC_0315,/predict/batch,POST,Functional,Functional test scenario 315,"{'texts': ['Được mỗi cái mã', 'Không tệ lắm', 'Sản phẩm rất tốt', 'Shop giao nhanh']}",200,valid batch prediction,LOW
+TC_0316,/predict/batch,POST,Regression,Regression test scenario 316,"{'texts': ['Không như quảng cáo', 'Quá tệ', 'Không tốt chút nào']}",200,valid batch prediction,LOW
+TC_0317,/predict,POST,Regression,Regression test scenario 317,{'text': 'Được mỗi cái mã'},200,negative,HIGH
+TC_0318,/predict,POST,Regression,Regression test scenario 318,{'text': 'Shop giao nhanh'},200,positive,HIGH
+TC_0319,/,GET,Security,Security test scenario 319,,200,healthy,MEDIUM
+TC_0320,/predict/batch,POST,Security,Security test scenario 320,"{'texts': ['Không tệ lắm', 'Tạm ổn', 'Bình thường']}",200,valid batch prediction,MEDIUM
+TC_0321,/,GET,Edge,Edge test scenario 321,,200,healthy,MEDIUM
+TC_0322,/,GET,Security,Security test scenario 322,,200,healthy,LOW
+TC_0323,/,GET,NLP,NLP test scenario 323,,200,healthy,LOW
+TC_0324,/predict,POST,Functional,Functional test scenario 324,{'text': 'Bình thường'},200,neutral,HIGH
+TC_0325,/predict,POST,Regression,Regression test scenario 325,{'text': '!!!!!'},200,neutral,HIGH
+TC_0326,/predict/batch,POST,NLP,NLP test scenario 326,"{'texts': ['Sản phẩm rất tốt', 'Quá tệ']}",200,valid batch prediction,HIGH
+TC_0327,/,GET,Edge,Edge test scenario 327,,200,healthy,LOW
+TC_0328,/predict/batch,POST,Validation,Validation test scenario 328,"{'texts': ['Được mỗi cái mã', 'Không tệ lắm', 'Bình thường', 'Đáng tiền', 'Tạm ổn']}",200,valid batch prediction,MEDIUM
+TC_0329,/,GET,Performance,Performance test scenario 329,,200,healthy,MEDIUM
+TC_0330,/predict,POST,Adversarial,Adversarial test scenario 330,{'text': 'Không như quảng cáo'},200,negative,MEDIUM
+TC_0331,/,GET,Security,Security test scenario 331,,200,healthy,LOW
+TC_0332,/predict,POST,Adversarial,Adversarial test scenario 332,{'text': 'Shop giao nhanh'},200,positive,LOW
+TC_0333,/,GET,Performance,Performance test scenario 333,,200,healthy,HIGH
+TC_0334,/health,GET,NLP,NLP test scenario 334,,200,healthy,MEDIUM
+TC_0335,/health,GET,Edge,Edge test scenario 335,,200,healthy,LOW
+TC_0336,/predict,POST,Validation,Validation test scenario 336,{'text': 'Sản phẩm rất tốt'},200,positive,LOW
+TC_0337,/health,GET,Regression,Regression test scenario 337,,200,healthy,HIGH
+TC_0338,/,GET,Validation,Validation test scenario 338,,200,healthy,HIGH
+TC_0339,/predict,POST,Functional,Functional test scenario 339,{'text': 'Không như quảng cáo'},200,negative,HIGH
+TC_0340,/,GET,Edge,Edge test scenario 340,,200,healthy,MEDIUM
+TC_0341,/health,GET,Batch,Batch test scenario 341,,200,healthy,LOW
+TC_0342,/predict/batch,POST,Reliability,Reliability test scenario 342,"{'texts': ['Đáng tiền', 'Không như quảng cáo', 'Bình thường', 'Được mỗi cái mã']}",200,valid batch prediction,HIGH
+TC_0343,/,GET,Performance,Performance test scenario 343,,200,healthy,LOW
+TC_0344,/health,GET,Unicode,Unicode test scenario 344,,200,healthy,MEDIUM
+TC_0345,/predict/batch,POST,Security,Security test scenario 345,"{'texts': ['Đáng tiền', 'Shop giao nhanh', 'Được mỗi cái mã', 'Bình thường', 'Tạm ổn']}",200,valid batch prediction,LOW
+TC_0346,/,GET,Validation,Validation test scenario 346,,200,healthy,LOW
+TC_0347,/,GET,Reliability,Reliability test scenario 347,,200,healthy,MEDIUM
+TC_0348,/,GET,Performance,Performance test scenario 348,,200,healthy,MEDIUM
+TC_0349,/health,GET,Batch,Batch test scenario 349,,200,healthy,HIGH
+TC_0350,/predict/batch,POST,Batch,Batch test scenario 350,"{'texts': ['Không tốt chút nào', 'Shop giao nhanh', 'Không tệ lắm']}",200,valid batch prediction,LOW
+TC_0351,/,GET,Functional,Functional test scenario 351,,200,healthy,HIGH
+TC_0352,/predict,POST,NLP,NLP test scenario 352,{'text': 'Không tốt chút nào'},200,negative,LOW
+TC_0353,/,GET,Performance,Performance test scenario 353,,200,healthy,LOW
+TC_0354,/,GET,Regression,Regression test scenario 354,,200,healthy,MEDIUM
+TC_0355,/predict,POST,Security,Security test scenario 355,{'text': '<script>alert(1)</script>'},200,negative,HIGH
+TC_0356,/predict/batch,POST,Adversarial,Adversarial test scenario 356,"{'texts': ['Tạm ổn', 'Được mỗi cái mã', 'Bình thường']}",200,valid batch prediction,MEDIUM
+TC_0357,/health,GET,Security,Security test scenario 357,,200,healthy,HIGH
+TC_0358,/predict/batch,POST,NLP,NLP test scenario 358,"{'texts': ['Sản phẩm rất tốt', 'Shop giao nhanh', 'Bình thường', 'Không tốt chút nào', 'Quá tệ']}",200,valid batch prediction,MEDIUM
+TC_0359,/predict,POST,Security,Security test scenario 359,{'text': 'Được mỗi cái mã'},200,negative,LOW
+TC_0360,/predict,POST,Adversarial,Adversarial test scenario 360,{'text': 'Bình thường'},200,neutral,MEDIUM
+TC_0361,/predict/batch,POST,Regression,Regression test scenario 361,"{'texts': ['Không như quảng cáo', 'Đáng tiền']}",200,valid batch prediction,LOW
+TC_0362,/,GET,Edge,Edge test scenario 362,,200,healthy,LOW
+TC_0363,/predict/batch,POST,Security,Security test scenario 363,"{'texts': ['Đáng tiền', 'Tạm ổn', 'Sản phẩm rất tốt']}",200,valid batch prediction,LOW
+TC_0364,/predict/batch,POST,Performance,Performance test scenario 364,"{'texts': ['Tạm ổn', 'Shop giao nhanh', 'Không tệ lắm', 'Đáng tiền']}",200,valid batch prediction,LOW
+TC_0365,/predict,POST,Regression,Regression test scenario 365,{'text': 'Đáng tiền'},200,positive,MEDIUM
+TC_0366,/,GET,Edge,Edge test scenario 366,,200,healthy,HIGH
+TC_0367,/health,GET,Security,Security test scenario 367,,200,healthy,HIGH
+TC_0368,/,GET,Security,Security test scenario 368,,200,healthy,HIGH
+TC_0369,/predict/batch,POST,Functional,Functional test scenario 369,"{'texts': ['Sản phẩm rất tốt', 'Không tốt chút nào', 'Quá tệ']}",200,valid batch prediction,HIGH
+TC_0370,/predict/batch,POST,Validation,Validation test scenario 370,"{'texts': ['Sản phẩm rất tốt', 'Không tốt chút nào']}",200,valid batch prediction,MEDIUM
+TC_0371,/predict/batch,POST,Validation,Validation test scenario 371,"{'texts': ['Đáng tiền', 'Shop giao nhanh', 'Quá tệ', 'Không như quảng cáo', 'Tạm ổn']}",200,valid batch prediction,MEDIUM
+TC_0372,/predict/batch,POST,Batch,Batch test scenario 372,"{'texts': ['Đáng tiền', 'Không như quảng cáo', 'Không tốt chút nào']}",200,valid batch prediction,LOW
+TC_0373,/,GET,Performance,Performance test scenario 373,,200,healthy,MEDIUM
+TC_0374,/predict,POST,Security,Security test scenario 374,{'text': 'Không như quảng cáo'},200,negative,LOW
+TC_0375,/,GET,Reliability,Reliability test scenario 375,,200,healthy,LOW
+TC_0376,/predict,POST,Unicode,Unicode test scenario 376,{'text': 'Được mỗi cái mã'},200,negative,HIGH
+TC_0377,/,GET,Unicode,Unicode test scenario 377,,200,healthy,HIGH
+TC_0378,/predict,POST,Performance,Performance test scenario 378,{'text': 'Không như quảng cáo'},200,negative,LOW
+TC_0379,/predict,POST,Edge,Edge test scenario 379,{'text': 'san pham rat tot'},200,positive,MEDIUM
+TC_0380,/health,GET,Batch,Batch test scenario 380,,200,healthy,MEDIUM
+TC_0381,/predict,POST,Validation,Validation test scenario 381,{'text': '<script>alert(1)</script>'},200,negative,HIGH
+TC_0382,/health,GET,Edge,Edge test scenario 382,,200,healthy,HIGH
+TC_0383,/predict,POST,Performance,Performance test scenario 383,{'text': 'đỉnh vcl'},200,positive,HIGH
+TC_0384,/,GET,Adversarial,Adversarial test scenario 384,,200,healthy,HIGH
+TC_0385,/predict/batch,POST,Validation,Validation test scenario 385,"{'texts': ['Sản phẩm rất tốt', 'Shop giao nhanh', 'Quá tệ', 'Tạm ổn']}",200,valid batch prediction,HIGH
+TC_0386,/,GET,Batch,Batch test scenario 386,,200,healthy,MEDIUM
+TC_0387,/,GET,Edge,Edge test scenario 387,,200,healthy,LOW
+TC_0388,/,GET,Edge,Edge test scenario 388,,200,healthy,MEDIUM
+TC_0389,/,GET,Batch,Batch test scenario 389,,200,healthy,LOW
+TC_0390,/,GET,Regression,Regression test scenario 390,,200,healthy,HIGH
+TC_0391,/,GET,Edge,Edge test scenario 391,,200,healthy,MEDIUM
+TC_0392,/,GET,Adversarial,Adversarial test scenario 392,,200,healthy,HIGH
+TC_0393,/,GET,Adversarial,Adversarial test scenario 393,,200,healthy,MEDIUM
+TC_0394,/,GET,Regression,Regression test scenario 394,,200,healthy,LOW
+TC_0395,/,GET,Edge,Edge test scenario 395,,200,healthy,MEDIUM
+TC_0396,/,GET,Regression,Regression test scenario 396,,200,healthy,HIGH
+TC_0397,/,GET,Adversarial,Adversarial test scenario 397,,200,healthy,LOW
+TC_0398,/,GET,Edge,Edge test scenario 398,,200,healthy,MEDIUM
+TC_0399,/predict/batch,POST,Adversarial,Adversarial test scenario 399,"{'texts': ['Đáng tiền', 'Quá tệ', 'Không như quảng cáo', 'Shop giao nhanh', 'Tạm ổn']}",200,valid batch prediction,HIGH
+TC_0200,/predict,POST,NLP,NLP test scenario 200,{'text': 'Không như quảng cáo'},200,negative,LOW
+TC_0200,/,GET,Adversarial,Adversarial test scenario 200,,200,healthy,HIGH
+TC_0402,/,GET,Unicode,Unicode test scenario 402,,200,healthy,MEDIUM
+TC_0200,/predict,POST,Unicode,Unicode test scenario 200,{'text': 'Quá tệ'},200,negative,MEDIUM
+TC_0404,/health,GET,Unicode,Unicode test scenario 404,,200,healthy,LOW
+TC_0405,/,GET,Validation,Validation test scenario 405,,200,healthy,HIGH
+TC_0406,/,GET,Functional,Functional test scenario 406,,200,healthy,HIGH
+TC_0407,/predict,POST,Reliability,Reliability test scenario 407,{'text': 'Sản phẩm rất tốt'},200,positive,LOW
+TC_0408,/,GET,NLP,NLP test scenario 408,,200,healthy,LOW
+TC_0409,/predict,POST,Unicode,Unicode test scenario 409,{'text': 'san pham rat tot'},200,positive,HIGH
+TC_0410,/health,GET,NLP,NLP test scenario 410,,200,healthy,MEDIUM
+TC_0411,/predict/batch,POST,Performance,Performance test scenario 411,"{'texts': ['Không tệ lắm', 'Được mỗi cái mã', 'Bình thường']}",200,valid batch prediction,HIGH
+TC_0412,/health,GET,Security,Security test scenario 412,,200,healthy,LOW
+TC_0413,/,GET,Regression,Regression test scenario 413,,200,healthy,HIGH
+TC_0414,/predict/batch,POST,Edge,Edge test scenario 414,"{'texts': ['Bình thường', 'Quá tệ', 'Không tệ lắm']}",200,valid batch prediction,LOW
+TC_0200,/predict/batch,POST,Batch,Batch test scenario 200,"{'texts': ['Tạm ổn', 'Không tệ lắm', 'Sản phẩm rất tốt', 'Không tốt chút nào', 'Được mỗi cái mã']}",200,valid batch prediction,LOW
+TC_0416,/,GET,Adversarial,Adversarial test scenario 416,,200,healthy,HIGH
+TC_0417,/,GET,Batch,Batch test scenario 417,,200,healthy,HIGH
+TC_0418,/predict,POST,NLP,NLP test scenario 418,{'text': 'Tạm ổn'},200,neutral,LOW
+TC_0419,/health,GET,Regression,Regression test scenario 419,,200,healthy,MEDIUM
+TC_0420,/health,GET,Edge,Edge test scenario 420,,200,healthy,LOW
+TC_0421,/predict/batch,POST,NLP,NLP test scenario 421,"{'texts': ['Bình thường', 'Shop giao nhanh']}",200,valid batch prediction,MEDIUM
+TC_0200,/health,GET,Batch,Batch test scenario 200,,200,healthy,LOW
+TC_0423,/health,GET,Functional,Functional test scenario 423,,200,healthy,LOW
+TC_0424,/,GET,Unicode,Unicode test scenario 424,,200,healthy,MEDIUM
+TC_0425,/,GET,Performance,Performance test scenario 425,,200,healthy,HIGH
+TC_0426,/health,GET,NLP,NLP test scenario 426,,200,healthy,MEDIUM
+TC_0427,/predict,POST,NLP,NLP test scenario 427,{'text': 'Shop giao nhanh'},200,positive,HIGH
+TC_0428,/health,GET,Regression,Regression test scenario 428,,200,healthy,MEDIUM
+TC_0200,/predict,POST,Functional,Functional test scenario 200,{'text': 'Shop giao nhanh'},200,positive,MEDIUM
+TC_0430,/health,GET,Adversarial,Adversarial test scenario 430,,200,healthy,MEDIUM
+TC_0431,/,GET,NLP,NLP test scenario 431,,200,healthy,MEDIUM
+TC_0432,/predict,POST,Adversarial,Adversarial test scenario 432,{'text': 'Không tệ lắm'},200,positive,MEDIUM
+TC_0433,/,GET,Regression,Regression test scenario 433,,200,healthy,LOW
+TC_0434,/health,GET,Edge,Edge test scenario 434,,200,healthy,MEDIUM
+TC_0435,/health,GET,Edge,Edge test scenario 435,,200,healthy,HIGH
+TC_0436,/health,GET,Performance,Performance test scenario 436,,200,healthy,HIGH
+TC_0437,/predict/batch,POST,Batch,Batch test scenario 437,"{'texts': ['Quá tệ', 'Đáng tiền', 'Bình thường', 'Không như quảng cáo']}",200,valid batch prediction,LOW
+TC_0438,/,GET,Adversarial,Adversarial test scenario 438,,200,healthy,MEDIUM
+TC_0439,/predict/batch,POST,Regression,Regression test scenario 439,"{'texts': ['Sản phẩm rất tốt', 'Được mỗi cái mã', 'Shop giao nhanh', 'Không tốt chút nào']}",200,valid batch prediction,MEDIUM
+TC_0440,/,GET,Regression,Regression test scenario 440,,200,healthy,MEDIUM
+TC_0441,/health,GET,Batch,Batch test scenario 441,,200,healthy,HIGH
+TC_0442,/,GET,Regression,Regression test scenario 442,,200,healthy,LOW
+TC_0443,/predict/batch,POST,Edge,Edge test scenario 443,"{'texts': ['Quá tệ', 'Bình thường']}",200,valid batch prediction,LOW
+TC_0444,/predict/batch,POST,NLP,NLP test scenario 444,"{'texts': ['Tạm ổn', 'Không như quảng cáo', 'Sản phẩm rất tốt']}",200,valid batch prediction,LOW
+TC_0445,/predict/batch,POST,Security,Security test scenario 445,"{'texts': ['Không tệ lắm', 'Không như quảng cáo', 'Được mỗi cái mã', 'Bình thường']}",200,valid batch prediction,LOW
+TC_0446,/predict/batch,POST,Reliability,Reliability test scenario 446,"{'texts': ['Shop giao nhanh', 'Không tốt chút nào', 'Không tệ lắm']}",200,valid batch prediction,MEDIUM
+TC_0447,/health,GET,Security,Security test scenario 447,,200,healthy,LOW
+TC_0448,/health,GET,Validation,Validation test scenario 448,,200,healthy,LOW
+TC_0449,/predict/batch,POST,Adversarial,Adversarial test scenario 449,"{'texts': ['Được mỗi cái mã', 'Tạm ổn', 'Bình thường', 'Shop giao nhanh']}",200,valid batch prediction,LOW
+TC_0450,/predict,POST,Adversarial,Adversarial test scenario 450,{'text': 'Không tệ lắm'},200,positive,HIGH
+TC_0451,/predict,POST,Performance,Performance test scenario 451,{'text': 'san pham rat tot'},200,positive,LOW
+TC_0452,/predict/batch,POST,Validation,Validation test scenario 452,"{'texts': ['Không tốt chút nào', 'Đáng tiền', 'Tạm ổn', 'Không tệ lắm']}",200,valid batch prediction,HIGH
+TC_0453,/predict,POST,Adversarial,Adversarial test scenario 453,{'text': 'san pham rat tot'},200,positive,LOW
+TC_0454,/,GET,Unicode,Unicode test scenario 454,,200,healthy,HIGH
+TC_0455,/,GET,Validation,Validation test scenario 455,,200,healthy,LOW
+TC_0456,/health,GET,Batch,Batch test scenario 456,,200,healthy,HIGH
+TC_0457,/,GET,Security,Security test scenario 457,,200,healthy,MEDIUM
+TC_0458,/predict,POST,Regression,Regression test scenario 458,"{'text': ""' OR 1=1 --""}",200,neutral,LOW
+TC_0459,/health,GET,Functional,Functional test scenario 459,,200,healthy,HIGH
+TC_0460,/predict/batch,POST,Functional,Functional test scenario 460,"{'texts': ['Được mỗi cái mã', 'Sản phẩm rất tốt', 'Quá tệ']}",200,valid batch prediction,LOW
+TC_0461,/predict/batch,POST,Security,Security test scenario 461,"{'texts': ['Shop giao nhanh', 'Không như quảng cáo', 'Quá tệ', 'Được mỗi cái mã']}",200,valid batch prediction,LOW
+TC_0462,/health,GET,Edge,Edge test scenario 462,,200,healthy,MEDIUM
+TC_0463,/predict,POST,Validation,Validation test scenario 463,{'text': 'Không tốt chút nào'},200,negative,HIGH
+TC_0464,/health,GET,Validation,Validation test scenario 464,,200,healthy,MEDIUM
+TC_0465,/health,GET,Security,Security test scenario 465,,200,healthy,LOW
+TC_0466,/health,GET,NLP,NLP test scenario 466,,200,healthy,HIGH
+TC_0467,/health,GET,Functional,Functional test scenario 467,,200,healthy,LOW
+TC_0468,/health,GET,Security,Security test scenario 468,,200,healthy,MEDIUM
+TC_0469,/predict,POST,Security,Security test scenario 469,{'text': 'giao nhanh nhưng sản phẩm tệ'},200,negative,MEDIUM
+TC_0470,/health,GET,Edge,Edge test scenario 470,,200,healthy,MEDIUM
+TC_0471,/health,GET,Adversarial,Adversarial test scenario 471,,200,healthy,HIGH
+TC_0472,/health,GET,Edge,Edge test scenario 472,,200,healthy,HIGH
+TC_0473,/health,GET,Unicode,Unicode test scenario 473,,200,healthy,MEDIUM
+TC_0474,/health,GET,Regression,Regression test scenario 474,,200,healthy,MEDIUM
+TC_0475,/predict/batch,POST,Unicode,Unicode test scenario 475,"{'texts': ['Được mỗi cái mã', 'Tạm ổn', 'Shop giao nhanh', 'Quá tệ']}",200,valid batch prediction,MEDIUM
+TC_0476,/,GET,Performance,Performance test scenario 476,,200,healthy,HIGH
+TC_0477,/predict/batch,POST,Unicode,Unicode test scenario 477,"{'texts': ['Không như quảng cáo', 'Quá tệ', 'Bình thường', 'Sản phẩm rất tốt']}",200,valid batch prediction,HIGH
+TC_0478,/,GET,Functional,Functional test scenario 478,,200,healthy,MEDIUM
+TC_0479,/predict,POST,Adversarial,Adversarial test scenario 479,{'text': '😂😂😂'},200,positive,MEDIUM
+TC_0480,/,GET,Unicode,Unicode test scenario 480,,200,healthy,MEDIUM
+TC_0481,/health,GET,Security,Security test scenario 481,,200,healthy,HIGH
+TC_0482,/predict,POST,Batch,Batch test scenario 482,{'text': 'Không tệ lắm'},200,positive,MEDIUM
+TC_0483,/health,GET,Edge,Edge test scenario 483,,200,healthy,MEDIUM
+TC_0484,/predict/batch,POST,Regression,Regression test scenario 484,"{'texts': ['Bình thường', 'Quá tệ', 'Được mỗi cái mã']}",200,valid batch prediction,MEDIUM
+TC_0485,/,GET,Adversarial,Adversarial test scenario 485,,200,healthy,LOW
+TC_0486,/,GET,Edge,Edge test scenario 486,,200,healthy,LOW
+TC_0487,/,GET,NLP,NLP test scenario 487,,200,healthy,MEDIUM
+TC_0488,/predict,POST,Security,Security test scenario 488,{'text': 'ảo ma canada'},200,negative,MEDIUM
+TC_0489,/,GET,Unicode,Unicode test scenario 489,,200,healthy,LOW
+TC_0490,/predict,POST,Edge,Edge test scenario 490,{'text': 'Sản phẩm rất tốt'},200,positive,HIGH
+TC_0491,/predict/batch,POST,Performance,Performance test scenario 491,"{'texts': ['Bình thường', 'Sản phẩm rất tốt', 'Không như quảng cáo']}",200,valid batch prediction,MEDIUM
+TC_0492,/health,GET,Batch,Batch test scenario 492,,200,healthy,MEDIUM
+TC_0493,/predict,POST,Functional,Functional test scenario 493,{'text': 'Bình thường'},200,neutral,MEDIUM
+TC_0494,/,GET,Validation,Validation test scenario 494,,200,healthy,MEDIUM
+TC_0495,/,GET,Validation,Validation test scenario 495,,200,healthy,LOW
+TC_0496,/predict/batch,POST,Regression,Regression test scenario 496,"{'texts': ['Bình thường', 'Không tốt chút nào', 'Quá tệ']}",200,valid batch prediction,HIGH
+TC_0497,/,GET,Performance,Performance test scenario 497,,200,healthy,HIGH
+TC_0498,/predict,POST,Security,Security test scenario 498,{'text': 'đỉnh vcl'},200,positive,HIGH
+TC_0499,/predict,POST,Edge,Edge test scenario 499,{'text': 'Không tệ lắm'},200,positive,HIGH
+TC_0500,/predict,POST,Adversarial,Adversarial test scenario 500,{'text': 'Đáng tiền'},200,positive,LOW
+TC_0501,/health,GET,Performance,Performance test scenario 501,,200,healthy,MEDIUM
+TC_0502,/predict/batch,POST,Edge,Edge test scenario 502,"{'texts': ['Sản phẩm rất tốt', 'Quá tệ']}",200,valid batch prediction,MEDIUM
+TC_0503,/,GET,Unicode,Unicode test scenario 503,,200,healthy,HIGH
+TC_0504,/predict,POST,Regression,Regression test scenario 504,{'text': 'Tạm ổn'},200,neutral,LOW
+TC_0505,/,GET,Functional,Functional test scenario 505,,200,healthy,MEDIUM
+TC_0506,/predict,POST,Unicode,Unicode test scenario 506,{'text': 'Không tốt chút nào'},200,negative,LOW
+TC_0507,/predict/batch,POST,Security,Security test scenario 507,"{'texts': ['Không tệ lắm', 'Quá tệ', 'Bình thường', 'Sản phẩm rất tốt']}",200,valid batch prediction,LOW
+TC_0508,/predict,POST,Edge,Edge test scenario 508,{'text': 'Bình thường'},200,neutral,MEDIUM
+TC_0509,/health,GET,Performance,Performance test scenario 509,,200,healthy,MEDIUM
+TC_0510,/predict/batch,POST,Validation,Validation test scenario 510,"{'texts': ['Shop giao nhanh', 'Quá tệ', 'Được mỗi cái mã', 'Sản phẩm rất tốt']}",200,valid batch prediction,LOW
+TC_0511,/,GET,Edge,Edge test scenario 511,,200,healthy,HIGH
+TC_0512,/,GET,Regression,Regression test scenario 512,,200,healthy,MEDIUM
+TC_0513,/predict/batch,POST,Unicode,Unicode test scenario 513,"{'texts': ['Được mỗi cái mã', 'Quá tệ', 'Shop giao nhanh', 'Tạm ổn']}",200,valid batch prediction,LOW
+TC_0514,/predict/batch,POST,Edge,Edge test scenario 514,"{'texts': ['Shop giao nhanh', 'Tạm ổn', 'Sản phẩm rất tốt', 'Bình thường', 'Quá tệ']}",200,valid batch prediction,LOW
+TC_0515,/predict/batch,POST,Adversarial,Adversarial test scenario 515,"{'texts': ['Bình thường', 'Được mỗi cái mã', 'Sản phẩm rất tốt', 'Không tốt chút nào', 'Shop giao nhanh']}",200,valid batch prediction,MEDIUM
+TC_0516,/,GET,Reliability,Reliability test scenario 516,,200,healthy,MEDIUM
+TC_0517,/predict,POST,Edge,Edge test scenario 517,{'text': 'Sản phẩm rất tốt'},200,positive,HIGH
+TC_0518,/,GET,Edge,Edge test scenario 518,,200,healthy,MEDIUM
+TC_0519,/predict/batch,POST,Performance,Performance test scenario 519,"{'texts': ['Shop giao nhanh', 'Không tệ lắm', 'Quá tệ', 'Bình thường']}",200,valid batch prediction,LOW
+TC_0520,/health,GET,Unicode,Unicode test scenario 520,,200,healthy,HIGH
+TC_0521,/health,GET,Edge,Edge test scenario 521,,200,healthy,MEDIUM
+TC_0522,/,GET,Functional,Functional test scenario 522,,200,healthy,HIGH
+TC_0523,/,GET,Reliability,Reliability test scenario 523,,200,healthy,HIGH
+TC_0524,/predict,POST,Functional,Functional test scenario 524,{'text': 'giao nhanh nhưng sản phẩm tệ'},200,negative,MEDIUM
+TC_0525,/predict,POST,Functional,Functional test scenario 525,{'text': '좋아요 rất tốt'},200,positive,HIGH
+TC_0526,/health,GET,Performance,Performance test scenario 526,,200,healthy,MEDIUM
+TC_0527,/predict,POST,Batch,Batch test scenario 527,{'text': 'Sản phẩm rất tốt'},200,positive,HIGH
+TC_0528,/predict,POST,Unicode,Unicode test scenario 528,{'text': 'ảo ma canada'},200,negative,LOW
+TC_0529,/predict,POST,Performance,Performance test scenario 529,{'text': 'Không tốt chút nào'},200,negative,LOW
+TC_0530,/predict/batch,POST,Performance,Performance test scenario 530,"{'texts': ['Quá tệ', 'Không như quảng cáo', 'Bình thường', 'Được mỗi cái mã']}",200,valid batch prediction,LOW
+TC_0531,/predict/batch,POST,Security,Security test scenario 531,"{'texts': ['Quá tệ', 'Không tệ lắm', 'Shop giao nhanh', 'Được mỗi cái mã', 'Tạm ổn']}",200,valid batch prediction,LOW
+TC_0532,/predict/batch,POST,Validation,Validation test scenario 532,"{'texts': ['Không tệ lắm', 'Không như quảng cáo', 'Quá tệ']}",200,valid batch prediction,MEDIUM
+TC_0533,/health,GET,Validation,Validation test scenario 533,,200,healthy,MEDIUM
+TC_0534,/,GET,Performance,Performance test scenario 534,,200,healthy,LOW
+TC_0535,/predict/batch,POST,Edge,Edge test scenario 535,"{'texts': ['Đáng tiền', 'Không như quảng cáo']}",200,valid batch prediction,LOW
+TC_0536,/,GET,Regression,Regression test scenario 536,,200,healthy,LOW
+TC_0537,/,GET,Reliability,Reliability test scenario 537,,200,healthy,HIGH
+TC_0538,/predict/batch,POST,NLP,NLP test scenario 538,"{'texts': ['Không như quảng cáo', 'Sản phẩm rất tốt', 'Không tệ lắm']}",200,valid batch prediction,LOW
+TC_0539,/predict/batch,POST,Regression,Regression test scenario 539,"{'texts': ['Được mỗi cái mã', 'Không tốt chút nào']}",200,valid batch prediction,LOW
+TC_0540,/predict,POST,Validation,Validation test scenario 540,{'text': 'Shop giao nhanh'},200,positive,LOW
+TC_0541,/predict/batch,POST,Validation,Validation test scenario 541,"{'texts': ['Được mỗi cái mã', 'Quá tệ']}",200,valid batch prediction,MEDIUM
+TC_0542,/predict,POST,Adversarial,Adversarial test scenario 542,{'text': 'Sản phẩm rất tốt'},200,positive,LOW
+TC_0543,/predict,POST,Functional,Functional test scenario 543,{'text': 'Không như quảng cáo'},200,negative,MEDIUM
+TC_0544,/health,GET,Functional,Functional test scenario 544,,200,healthy,LOW
+TC_0545,/,GET,Performance,Performance test scenario 545,,200,healthy,LOW
+TC_0546,/,GET,NLP,NLP test scenario 546,,200,healthy,MEDIUM
+TC_0547,/health,GET,Reliability,Reliability test scenario 547,,200,healthy,LOW
+TC_0548,/predict/batch,POST,NLP,NLP test scenario 548,"{'texts': ['Không như quảng cáo', 'Không tệ lắm', 'Được mỗi cái mã', 'Tạm ổn']}",200,valid batch prediction,LOW
+TC_0549,/predict,POST,Reliability,Reliability test scenario 549,{'text': 'giao nhanh nhưng sản phẩm tệ'},200,negative,HIGH
+TC_0550,/predict,POST,NLP,NLP test scenario 550,{'text': 'Sản phẩm rất tốt'},200,positive,MEDIUM
+TC_0551,/health,GET,Performance,Performance test scenario 551,,200,healthy,LOW
+TC_0552,/predict/batch,POST,Validation,Validation test scenario 552,"{'texts': ['Không như quảng cáo', 'Quá tệ', 'Bình thường', 'Đáng tiền', 'Không tệ lắm']}",200,valid batch prediction,HIGH
+TC_0553,/,GET,Reliability,Reliability test scenario 553,,200,healthy,LOW
+TC_0554,/predict,POST,Regression,Regression test scenario 554,{'text': 'Không tệ lắm'},200,positive,LOW
+TC_0555,/predict/batch,POST,Security,Security test scenario 555,"{'texts': ['Không tệ lắm', 'Quá tệ', 'Shop giao nhanh', 'Không tốt chút nào', 'Được mỗi cái mã']}",200,valid batch prediction,HIGH
+TC_0556,/health,GET,Reliability,Reliability test scenario 556,,200,healthy,HIGH
+TC_0557,/health,GET,Functional,Functional test scenario 557,,200,healthy,LOW
+TC_0558,/health,GET,Adversarial,Adversarial test scenario 558,,200,healthy,HIGH
+TC_0559,/predict,POST,Functional,Functional test scenario 559,{'text': 'Được mỗi cái mã'},200,negative,LOW
+TC_0560,/predict/batch,POST,Regression,Regression test scenario 560,"{'texts': ['Đáng tiền', 'Không tệ lắm', 'Không tốt chút nào', 'Sản phẩm rất tốt']}",200,valid batch prediction,MEDIUM
+TC_0561,/health,GET,Reliability,Reliability test scenario 561,,200,healthy,LOW
+TC_0562,/predict/batch,POST,NLP,NLP test scenario 562,"{'texts': ['Quá tệ', 'Không như quảng cáo', 'Shop giao nhanh', 'Đáng tiền']}",200,valid batch prediction,HIGH
+TC_0563,/,GET,NLP,NLP test scenario 563,,200,healthy,MEDIUM
+TC_0564,/,GET,Regression,Regression test scenario 564,,200,healthy,LOW
+TC_0565,/,GET,Unicode,Unicode test scenario 565,,200,healthy,MEDIUM
+TC_0566,/predict,POST,Reliability,Reliability test scenario 566,{'text': '좋아요 rất tốt'},200,positive,HIGH
+TC_0567,/predict,POST,Performance,Performance test scenario 567,{'text': 'Bình thường'},200,neutral,MEDIUM
+TC_0568,/predict,POST,Adversarial,Adversarial test scenario 568,{'text': 'Shop giao nhanh'},200,positive,HIGH
+TC_0569,/,GET,Functional,Functional test scenario 569,,200,healthy,MEDIUM
+TC_0570,/predict/batch,POST,Performance,Performance test scenario 570,"{'texts': ['Tạm ổn', 'Được mỗi cái mã']}",200,valid batch prediction,HIGH
+TC_0571,/predict/batch,POST,Unicode,Unicode test scenario 571,"{'texts': ['Sản phẩm rất tốt', 'Không tốt chút nào', 'Không tệ lắm', 'Không như quảng cáo', 'Tạm ổn']}",200,valid batch prediction,LOW
+TC_0572,/predict,POST,Adversarial,Adversarial test scenario 572,{'text': 'Tạm ổn'},200,neutral,LOW
+TC_0573,/predict,POST,Unicode,Unicode test scenario 573,{'text': 'Đáng tiền'},200,positive,HIGH
+TC_0574,/health,GET,Functional,Functional test scenario 574,,200,healthy,MEDIUM
+TC_0575,/,GET,Regression,Regression test scenario 575,,200,healthy,HIGH
+TC_0576,/health,GET,Batch,Batch test scenario 576,,200,healthy,LOW
+TC_0577,/predict,POST,Batch,Batch test scenario 577,{'text': 'Shop giao nhanh'},200,positive,LOW
+TC_0578,/predict/batch,POST,Reliability,Reliability test scenario 578,"{'texts': ['Không như quảng cáo', 'Không tốt chút nào', 'Sản phẩm rất tốt']}",200,valid batch prediction,MEDIUM
+TC_0579,/,GET,Regression,Regression test scenario 579,,200,healthy,MEDIUM
+TC_0580,/health,GET,Functional,Functional test scenario 580,,200,healthy,LOW
+TC_0581,/predict,POST,Reliability,Reliability test scenario 581,{'text': 'Bình thường'},200,neutral,MEDIUM
+TC_0582,/health,GET,Functional,Functional test scenario 582,,200,healthy,MEDIUM
+TC_0583,/health,GET,Regression,Regression test scenario 583,,200,healthy,MEDIUM
+TC_0584,/health,GET,Regression,Regression test scenario 584,,200,healthy,MEDIUM
+TC_0585,/,GET,Security,Security test scenario 585,,200,healthy,MEDIUM
+TC_0586,/predict,POST,Validation,Validation test scenario 586,{'text': 'giao nhanh nhưng sản phẩm tệ'},200,positive,MEDIUM
+TC_0587,/predict,POST,Performance,Performance test scenario 587,{'text': '!!!!!'},200,positive,HIGH
+TC_0588,/health,GET,Reliability,Reliability test scenario 588,,200,healthy,HIGH
+TC_0589,/,GET,Unicode,Unicode test scenario 589,,200,healthy,HIGH
+TC_0590,/predict,POST,Functional,Functional test scenario 590,{'text': '123456'},200,negative,MEDIUM
+TC_0591,/,GET,Security,Security test scenario 591,,200,healthy,LOW
+TC_0592,/predict,POST,Adversarial,Adversarial test scenario 592,{'text': 'Tạm ổn'},200,neutral,MEDIUM
+TC_0593,/predict/batch,POST,Validation,Validation test scenario 593,"{'texts': ['Quá tệ', 'Không tệ lắm', 'Được mỗi cái mã', 'Không tốt chút nào', 'Shop giao nhanh']}",200,valid batch prediction,LOW
+TC_0594,/predict,POST,Functional,Functional test scenario 594,{'text': 'Quá tệ'},200,negative,MEDIUM
+TC_0595,/predict/batch,POST,NLP,NLP test scenario 595,"{'texts': ['Sản phẩm rất tốt', 'Không tệ lắm', 'Shop giao nhanh', 'Không như quảng cáo']}",200,valid batch prediction,LOW
+TC_0596,/predict/batch,POST,Adversarial,Adversarial test scenario 596,"{'texts': ['Sản phẩm rất tốt', 'Quá tệ', 'Bình thường']}",200,valid batch prediction,MEDIUM
+TC_0597,/predict/batch,POST,Reliability,Reliability test scenario 597,"{'texts': ['Shop giao nhanh', 'Không tốt chút nào', 'Sản phẩm rất tốt']}",200,valid batch prediction,HIGH
+TC_0598,/predict,POST,Batch,Batch test scenario 598,{'text': 'Quá tệ'},200,negative,HIGH
+TC_0599,/,GET,Security,Security test scenario 599,,200,healthy,LOW
+TC_0600,/health,GET,Functional,Functional test scenario 600,,200,healthy,MEDIUM
+TC_0601,/predict/batch,POST,Functional,Functional test scenario 601,"{'texts': ['Đáng tiền', 'Không như quảng cáo', 'Tạm ổn', 'Sản phẩm rất tốt', 'Quá tệ']}",200,valid batch prediction,HIGH
+TC_0602,/health,GET,Security,Security test scenario 602,,200,healthy,HIGH
+TC_0603,/predict,POST,Regression,Regression test scenario 603,{'text': 'Không tệ lắm'},200,positive,LOW
+TC_0604,/predict,POST,Reliability,Reliability test scenario 604,{'text': 'Tạm ổn'},200,neutral,HIGH
+TC_0605,/predict/batch,POST,Edge,Edge test scenario 605,"{'texts': ['Được mỗi cái mã', 'Sản phẩm rất tốt', 'Tạm ổn', 'Bình thường']}",200,valid batch prediction,LOW
+TC_0606,/health,GET,Performance,Performance test scenario 606,,200,healthy,MEDIUM
+TC_0607,/health,GET,Unicode,Unicode test scenario 607,,200,healthy,LOW
+TC_0608,/health,GET,Batch,Batch test scenario 608,,200,healthy,HIGH
+TC_0609,/,GET,Validation,Validation test scenario 609,,200,healthy,MEDIUM
+TC_0610,/,GET,Unicode,Unicode test scenario 610,,200,healthy,MEDIUM
+TC_0611,/,GET,Reliability,Reliability test scenario 611,,200,healthy,MEDIUM
+TC_0612,/,GET,Batch,Batch test scenario 612,,200,healthy,LOW
+TC_0613,/predict/batch,POST,Reliability,Reliability test scenario 613,"{'texts': ['Sản phẩm rất tốt', 'Quá tệ', 'Shop giao nhanh']}",200,valid batch prediction,HIGH
+TC_0614,/health,GET,Unicode,Unicode test scenario 614,,200,healthy,HIGH
+TC_0615,/predict,POST,Edge,Edge test scenario 615,{'text': '<script>alert(1)</script>'},200,positive,LOW
+TC_0616,/predict,POST,Validation,Validation test scenario 616,{'text': 'Không tốt chút nào'},200,negative,MEDIUM
+TC_0617,/,GET,Regression,Regression test scenario 617,,200,healthy,HIGH
+TC_0618,/predict,POST,Adversarial,Adversarial test scenario 618,{'text': 'Quá tệ'},200,negative,LOW
+TC_0619,/predict/batch,POST,Validation,Validation test scenario 619,"{'texts': ['Không như quảng cáo', 'Quá tệ']}",200,valid batch prediction,HIGH
+TC_0620,/,GET,Functional,Functional test scenario 620,,200,healthy,HIGH
+TC_0621,/predict/batch,POST,Edge,Edge test scenario 621,"{'texts': ['Đáng tiền', 'Được mỗi cái mã']}",200,valid batch prediction,HIGH
+TC_0622,/health,GET,Functional,Functional test scenario 622,,200,healthy,LOW
+TC_0623,/health,GET,Reliability,Reliability test scenario 623,,200,healthy,LOW
+TC_0624,/predict,POST,Validation,Validation test scenario 624,{'text': 'Đáng tiền'},200,positive,LOW
+TC_0625,/,GET,Validation,Validation test scenario 625,,200,healthy,LOW
+TC_0626,/health,GET,Adversarial,Adversarial test scenario 626,,200,healthy,HIGH
+TC_0627,/,GET,Edge,Edge test scenario 627,,200,healthy,HIGH
+TC_0628,/,GET,NLP,NLP test scenario 628,,200,healthy,MEDIUM
+TC_0629,/predict/batch,POST,Adversarial,Adversarial test scenario 629,"{'texts': ['Bình thường', 'Không tệ lắm', 'Không như quảng cáo', 'Được mỗi cái mã', 'Quá tệ']}",200,valid batch prediction,HIGH
+TC_0630,/health,GET,Functional,Functional test scenario 630,,200,healthy,MEDIUM
+TC_0631,/predict/batch,POST,Functional,Functional test scenario 631,"{'texts': ['Bình thường', 'Được mỗi cái mã']}",200,valid batch prediction,LOW
+TC_0632,/,GET,Reliability,Reliability test scenario 632,,200,healthy,MEDIUM
+TC_0633,/,GET,Edge,Edge test scenario 633,,200,healthy,MEDIUM
+TC_0634,/predict,POST,Validation,Validation test scenario 634,{'text': '<script>alert(1)</script>'},200,negative,MEDIUM
+TC_0635,/predict,POST,Functional,Functional test scenario 635,{'text': 'Tạm ổn'},200,neutral,MEDIUM
+TC_0636,/predict/batch,POST,Functional,Functional test scenario 636,"{'texts': ['Không như quảng cáo', 'Quá tệ', 'Tạm ổn', 'Không tốt chút nào']}",200,valid batch prediction,HIGH
+TC_0637,/,GET,Validation,Validation test scenario 637,,200,healthy,HIGH
+TC_0638,/health,GET,Security,Security test scenario 638,,200,healthy,MEDIUM
+TC_0639,/health,GET,Edge,Edge test scenario 639,,200,healthy,MEDIUM
+TC_0640,/health,GET,Unicode,Unicode test scenario 640,,200,healthy,HIGH
+TC_0641,/health,GET,Regression,Regression test scenario 641,,200,healthy,MEDIUM
+TC_0642,/health,GET,Security,Security test scenario 642,,200,healthy,LOW
+TC_0643,/predict,POST,NLP,NLP test scenario 643,{'text': 'Quá tệ'},200,negative,HIGH
+TC_0644,/,GET,Performance,Performance test scenario 644,,200,healthy,LOW
+TC_0645,/predict,POST,Batch,Batch test scenario 645,{'text': 'san pham rat tot'},200,positive,HIGH
+TC_0646,/predict/batch,POST,Reliability,Reliability test scenario 646,"{'texts': ['Đáng tiền', 'Bình thường']}",200,valid batch prediction,MEDIUM
+TC_0647,/,GET,Security,Security test scenario 647,,200,healthy,LOW
+TC_0648,/,GET,Regression,Regression test scenario 648,,200,healthy,MEDIUM
+TC_0649,/predict,POST,Adversarial,Adversarial test scenario 649,{'text': 'Tạm ổn'},200,neutral,LOW
+TC_0650,/predict,POST,Reliability,Reliability test scenario 650,{'text': 'Không như quảng cáo'},200,negative,MEDIUM
+TC_0651,/predict,POST,Batch,Batch test scenario 651,{'text': 'san pham rat tot'},200,positive,LOW
+TC_0652,/predict,POST,Reliability,Reliability test scenario 652,{'text': 'Không như quảng cáo'},200,negative,HIGH
+TC_0653,/predict,POST,Adversarial,Adversarial test scenario 653,{'text': 'Sản phẩm rất tốt'},200,positive,HIGH
+TC_0654,/predict/batch,POST,Edge,Edge test scenario 654,"{'texts': ['Bình thường', 'Quá tệ', 'Không tệ lắm']}",200,valid batch prediction,HIGH
+TC_0655,/predict/batch,POST,Security,Security test scenario 655,"{'texts': ['Tạm ổn', 'Quá tệ']}",200,valid batch prediction,MEDIUM
+TC_0656,/predict,POST,Regression,Regression test scenario 656,{'text': 'Không như quảng cáo'},200,negative,HIGH
+TC_0657,/predict,POST,Reliability,Reliability test scenario 657,{'text': 'Đáng tiền'},200,positive,MEDIUM
+TC_0658,/health,GET,Security,Security test scenario 658,,200,healthy,HIGH
+TC_0659,/,GET,Functional,Functional test scenario 659,,200,healthy,HIGH
+TC_0660,/predict,POST,Performance,Performance test scenario 660,{'text': 'Shop giao nhanh'},200,positive,LOW
+TC_0661,/predict,POST,Batch,Batch test scenario 661,{'text': '<script>alert(1)</script>'},200,negative,LOW
+TC_0662,/,GET,NLP,NLP test scenario 662,,200,healthy,LOW
+TC_0663,/predict,POST,Edge,Edge test scenario 663,{'text': 'Tạm ổn'},200,neutral,HIGH
+TC_0664,/predict/batch,POST,Security,Security test scenario 664,"{'texts': ['Không tốt chút nào', 'Đáng tiền', 'Sản phẩm rất tốt', 'Tạm ổn']}",200,valid batch prediction,LOW
+TC_0665,/health,GET,Functional,Functional test scenario 665,,200,healthy,LOW
+TC_0666,/predict,POST,Unicode,Unicode test scenario 666,{'text': 'Không như quảng cáo'},200,negative,HIGH
+TC_0667,/health,GET,Validation,Validation test scenario 667,,200,healthy,MEDIUM
+TC_0668,/predict/batch,POST,Validation,Validation test scenario 668,"{'texts': ['Bình thường', 'Quá tệ']}",200,valid batch prediction,HIGH
+TC_0669,/,GET,Regression,Regression test scenario 669,,200,healthy,HIGH
+TC_0670,/predict,POST,Batch,Batch test scenario 670,"{'text': ""' OR 1=1 --""}",200,negative,LOW
+TC_0671,/predict,POST,NLP,NLP test scenario 671,{'text': 'Bình thường'},200,neutral,MEDIUM
+TC_0672,/health,GET,Functional,Functional test scenario 672,,200,healthy,LOW
+TC_0673,/predict,POST,Security,Security test scenario 673,{'text': '<script>alert(1)</script>'},200,positive,MEDIUM
+TC_0674,/health,GET,Validation,Validation test scenario 674,,200,healthy,HIGH
+TC_0675,/health,GET,Validation,Validation test scenario 675,,200,healthy,LOW
+TC_0676,/predict/batch,POST,Edge,Edge test scenario 676,"{'texts': ['Được mỗi cái mã', 'Sản phẩm rất tốt', 'Không tệ lắm', 'Không tốt chút nào', 'Shop giao nhanh']}",200,valid batch prediction,MEDIUM
+TC_0677,/predict,POST,Functional,Functional test scenario 677,{'text': 'Đáng tiền'},200,positive,HIGH
+TC_0678,/,GET,NLP,NLP test scenario 678,,200,healthy,HIGH
+TC_0679,/predict/batch,POST,Edge,Edge test scenario 679,"{'texts': ['Tạm ổn', 'Shop giao nhanh', 'Quá tệ', 'Bình thường']}",200,valid batch prediction,LOW
+TC_0680,/predict,POST,Reliability,Reliability test scenario 680,{'text': 'Sản phẩm rất tốt'},200,positive,HIGH
+TC_0681,/predict/batch,POST,Unicode,Unicode test scenario 681,"{'texts': ['Không tốt chút nào', 'Shop giao nhanh', 'Quá tệ']}",200,valid batch prediction,MEDIUM
+TC_0682,/,GET,Adversarial,Adversarial test scenario 682,,200,healthy,MEDIUM
+TC_0683,/health,GET,Reliability,Reliability test scenario 683,,200,healthy,LOW
+TC_0684,/health,GET,Batch,Batch test scenario 684,,200,healthy,LOW
+TC_0685,/predict,POST,NLP,NLP test scenario 685,{'text': 'Được mỗi cái mã'},200,negative,LOW
+TC_0686,/,GET,Functional,Functional test scenario 686,,200,healthy,HIGH
+TC_0687,/predict,POST,Security,Security test scenario 687,"{'text': ""' OR 1=1 --""}",200,positive,LOW
+TC_0688,/predict,POST,Edge,Edge test scenario 688,{'text': '123456'},200,positive,LOW
+TC_0689,/predict,POST,NLP,NLP test scenario 689,{'text': 'giao nhanh nhưng sản phẩm tệ'},200,neutral,HIGH
+TC_0690,/predict,POST,Adversarial,Adversarial test scenario 690,{'text': 'Shop giao nhanh'},200,positive,MEDIUM
+TC_0691,/health,GET,Security,Security test scenario 691,,200,healthy,MEDIUM
+TC_0692,/,GET,Security,Security test scenario 692,,200,healthy,MEDIUM
+TC_0693,/predict,POST,Performance,Performance test scenario 693,{'text': 'Không tệ lắm'},200,positive,LOW
+TC_0694,/,GET,Validation,Validation test scenario 694,,200,healthy,HIGH
+TC_0695,/health,GET,Edge,Edge test scenario 695,,200,healthy,HIGH
+TC_0696,/health,GET,Functional,Functional test scenario 696,,200,healthy,MEDIUM
+TC_0697,/health,GET,Validation,Validation test scenario 697,,200,healthy,MEDIUM
+TC_0698,/predict,POST,Batch,Batch test scenario 698,{'text': 'Shop giao nhanh'},200,positive,HIGH
+TC_0699,/predict/batch,POST,Unicode,Unicode test scenario 699,"{'texts': ['Bình thường', 'Shop giao nhanh', 'Quá tệ', 'Tạm ổn']}",200,valid batch prediction,HIGH
+TC_0700,/,GET,Performance,Performance test scenario 700,,200,healthy,HIGH
+TC_0701,/,GET,Functional,Functional test scenario 701,,200,healthy,MEDIUM
+TC_0702,/health,GET,Edge,Edge test scenario 702,,200,healthy,HIGH
+TC_0703,/predict,POST,Adversarial,Adversarial test scenario 703,{'text': 'san pham rat tot'},200,positive,HIGH
+TC_0704,/predict/batch,POST,Regression,Regression test scenario 704,"{'texts': ['Được mỗi cái mã', 'Bình thường']}",200,valid batch prediction,LOW
+TC_0705,/predict,POST,Validation,Validation test scenario 705,{'text': 'Quá tệ'},200,negative,HIGH
+TC_0706,/predict,POST,Edge,Edge test scenario 706,{'text': 'Quá tệ'},200,negative,MEDIUM
+TC_0707,/health,GET,Functional,Functional test scenario 707,,200,healthy,HIGH
+TC_0708,/health,GET,Edge,Edge test scenario 708,,200,healthy,MEDIUM
+TC_0709,/health,GET,Reliability,Reliability test scenario 709,,200,healthy,HIGH
+TC_0710,/predict/batch,POST,Performance,Performance test scenario 710,"{'texts': ['Shop giao nhanh', 'Không như quảng cáo', 'Bình thường', 'Được mỗi cái mã', 'Quá tệ']}",200,valid batch prediction,HIGH
+TC_0711,/predict,POST,Adversarial,Adversarial test scenario 711,{'text': 'Bình thường'},200,neutral,MEDIUM
+TC_0712,/predict,POST,Regression,Regression test scenario 712,{'text': 'giao nhanh nhưng sản phẩm tệ'},200,negative,LOW
+TC_0713,/predict/batch,POST,Edge,Edge test scenario 713,"{'texts': ['Được mỗi cái mã', 'Quá tệ']}",200,valid batch prediction,HIGH
+TC_0714,/,GET,Security,Security test scenario 714,,200,healthy,MEDIUM
+TC_0715,/predict,POST,Edge,Edge test scenario 715,{'text': 'Không tốt chút nào'},200,negative,MEDIUM
+TC_0716,/predict/batch,POST,Security,Security test scenario 716,"{'texts': ['Không tốt chút nào', 'Không tệ lắm', 'Được mỗi cái mã']}",200,valid batch prediction,LOW
+TC_0717,/health,GET,Adversarial,Adversarial test scenario 717,,200,healthy,HIGH
+TC_0718,/predict/batch,POST,Reliability,Reliability test scenario 718,"{'texts': ['Được mỗi cái mã', 'Quá tệ', 'Tạm ổn', 'Không tốt chút nào']}",200,valid batch prediction,LOW
+TC_0719,/predict/batch,POST,Adversarial,Adversarial test scenario 719,"{'texts': ['Sản phẩm rất tốt', 'Quá tệ', 'Tạm ổn']}",200,valid batch prediction,LOW
+TC_0720,/predict,POST,Batch,Batch test scenario 720,{'text': '좋아요 rất tốt'},200,positive,LOW
+TC_0721,/health,GET,Security,Security test scenario 721,,200,healthy,MEDIUM
+TC_0722,/health,GET,Edge,Edge test scenario 722,,200,healthy,HIGH
+TC_0723,/,GET,Performance,Performance test scenario 723,,200,healthy,LOW
+TC_0724,/health,GET,Functional,Functional test scenario 724,,200,healthy,LOW
+TC_0725,/predict,POST,Adversarial,Adversarial test scenario 725,{'text': 'Shop giao nhanh'},200,positive,LOW
+TC_0726,/,GET,Reliability,Reliability test scenario 726,,200,healthy,LOW
+TC_0727,/health,GET,NLP,NLP test scenario 727,,200,healthy,HIGH
+TC_0728,/predict/batch,POST,Validation,Validation test scenario 728,"{'texts': ['Không tệ lắm', 'Shop giao nhanh']}",200,valid batch prediction,HIGH
+TC_0729,/,GET,Functional,Functional test scenario 729,,200,healthy,MEDIUM
+TC_0730,/,GET,Functional,Functional test scenario 730,,200,healthy,HIGH
+TC_0731,/,GET,Edge,Edge test scenario 731,,200,healthy,HIGH
+TC_0732,/health,GET,NLP,NLP test scenario 732,,200,healthy,HIGH
+TC_0733,/predict,POST,Functional,Functional test scenario 733,{'text': 'Tạm ổn'},200,neutral,MEDIUM
+TC_0734,/health,GET,Reliability,Reliability test scenario 734,,200,healthy,HIGH
+TC_0735,/,GET,Functional,Functional test scenario 735,,200,healthy,MEDIUM
+TC_0736,/predict/batch,POST,NLP,NLP test scenario 736,"{'texts': ['Được mỗi cái mã', 'Shop giao nhanh', 'Không như quảng cáo']}",200,valid batch prediction,HIGH
+TC_0737,/predict/batch,POST,Edge,Edge test scenario 737,"{'texts': ['Đáng tiền', 'Sản phẩm rất tốt']}",200,valid batch prediction,LOW
+TC_0738,/predict/batch,POST,Validation,Validation test scenario 738,"{'texts': ['Quá tệ', 'Bình thường']}",200,valid batch prediction,LOW
+TC_0739,/,GET,Validation,Validation test scenario 739,,200,healthy,HIGH
+TC_0740,/health,GET,Batch,Batch test scenario 740,,200,healthy,MEDIUM
+TC_0741,/,GET,Functional,Functional test scenario 741,,200,healthy,LOW
+TC_0742,/health,GET,Edge,Edge test scenario 742,,200,healthy,LOW
+TC_0743,/health,GET,Performance,Performance test scenario 743,,200,healthy,MEDIUM
+TC_0744,/,GET,Validation,Validation test scenario 744,,200,healthy,MEDIUM
+TC_0745,/health,GET,Functional,Functional test scenario 745,,200,healthy,MEDIUM
+TC_0746,/predict,POST,Adversarial,Adversarial test scenario 746,{'text': 'Sản phẩm rất tốt'},200,positive,HIGH
+TC_0747,/predict/batch,POST,Unicode,Unicode test scenario 747,"{'texts': ['Không tệ lắm', 'Bình thường', 'Không như quảng cáo', 'Tạm ổn', 'Đáng tiền']}",200,valid batch prediction,HIGH
+TC_0748,/predict/batch,POST,Adversarial,Adversarial test scenario 748,"{'texts': ['Không như quảng cáo', 'Bình thường', 'Sản phẩm rất tốt', 'Không tốt chút nào']}",200,valid batch prediction,HIGH
+TC_0749,/predict/batch,POST,Batch,Batch test scenario 749,"{'texts': ['Không tốt chút nào', 'Đáng tiền']}",200,valid batch prediction,MEDIUM
+TC_0750,/,GET,Security,Security test scenario 750,,200,healthy,HIGH
